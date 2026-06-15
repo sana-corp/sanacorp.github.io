@@ -53,6 +53,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const mDropdownTrigger = document.getElementById('mobile-dropdown-trigger');
+    const mSubmenu = document.getElementById('mobile-submenu');
+    if (mDropdownTrigger && mSubmenu) {
+        mDropdownTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            mDropdownTrigger.classList.toggle('open');
+            mSubmenu.classList.toggle('active');
+        });
+    }
+
+    const mDevTrigger = document.getElementById('mobile-dev-trigger');
+    const mDevSubmenu = document.getElementById('mobile-dev-submenu');
+    if (mDevTrigger && mDevSubmenu) {
+        mDevTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            mDevTrigger.classList.toggle('open');
+            mDevSubmenu.classList.toggle('active');
+        });
+    }
+
+    const mFutureTrigger = document.getElementById('mobile-future-trigger');
+    const mFutureSubmenu = document.getElementById('mobile-future-submenu');
+    if (mFutureTrigger && mFutureSubmenu) {
+        mFutureTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            mFutureTrigger.classList.toggle('open');
+            mFutureSubmenu.classList.toggle('active');
+        });
+    }
+
     // Helper to close mobile menu
     function closeMobileMenu() {
         if (burgerBtn && burgerBtn.classList.contains('active')) {
@@ -144,6 +174,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            const productPages = ['product'];
+            const devPages = ['case-finance', 'case-health', 'case-vending', 'case-crm'];
+            const futurePages = ['erp'];
+
+            // Desktop Trigger Sync
+            const productTrigger = document.getElementById('dropdown-products-trigger');
+            if (productTrigger) {
+                productTrigger.classList.toggle('active', productPages.includes(pageKey));
+            }
+
+            const devTrigger = document.getElementById('dropdown-dev-trigger');
+            if (devTrigger) {
+                devTrigger.classList.toggle('active', devPages.includes(pageKey));
+            }
+
+            const futureTrigger = document.getElementById('dropdown-future-trigger');
+            if (futureTrigger) {
+                futureTrigger.classList.toggle('active', futurePages.includes(pageKey));
+            }
+
             mobileNavItems.forEach(item => {
                 if (item.getAttribute('data-page') === pageKey) {
                     item.classList.add('active');
@@ -151,6 +201,49 @@ document.addEventListener('DOMContentLoaded', () => {
                     item.classList.remove('active');
                 }
             });
+
+            // Mobile Dropdown Syncs
+            const mobileDropdownTrigger = document.getElementById('mobile-dropdown-trigger');
+            const mobileSubmenu = document.getElementById('mobile-submenu');
+            if (mobileDropdownTrigger) {
+                if (productPages.includes(pageKey)) {
+                    mobileDropdownTrigger.classList.add('active');
+                    if (mobileSubmenu) {
+                        mobileSubmenu.classList.add('active');
+                        mobileDropdownTrigger.classList.add('open');
+                    }
+                } else {
+                    mobileDropdownTrigger.classList.remove('active');
+                }
+            }
+
+            const mobileDevTrigger = document.getElementById('mobile-dev-trigger');
+            const mobileDevSubmenu = document.getElementById('mobile-dev-submenu');
+            if (mobileDevTrigger) {
+                if (devPages.includes(pageKey)) {
+                    mobileDevTrigger.classList.add('active');
+                    if (mobileDevSubmenu) {
+                        mobileDevSubmenu.classList.add('active');
+                        mobileDevTrigger.classList.add('open');
+                    }
+                } else {
+                    mobileDevTrigger.classList.remove('active');
+                }
+            }
+
+            const mobileFutureTrigger = document.getElementById('mobile-future-trigger');
+            const mobileFutureSubmenu = document.getElementById('mobile-future-submenu');
+            if (mobileFutureTrigger) {
+                if (futurePages.includes(pageKey)) {
+                    mobileFutureTrigger.classList.add('active');
+                    if (mobileFutureSubmenu) {
+                        mobileFutureSubmenu.classList.add('active');
+                        mobileFutureTrigger.classList.add('open');
+                    }
+                } else {
+                    mobileFutureTrigger.classList.remove('active');
+                }
+            }
 
             // Reset scroll to top
             if (lenis) {

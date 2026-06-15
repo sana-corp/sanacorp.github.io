@@ -42,12 +42,27 @@
             <nav class="desktop-nav">
                 <ul class="nav-list">
                     <li><a href="#/" class="nav-item active" data-page="home">Главная</a></li>
-                    <li><a href="#/product" class="nav-item" data-page="product">Промышленный IoT</a></li>
-                    <li><a href="#/case-finance" class="nav-item" data-page="case-finance">Финансовый ИИ</a></li>
-                    <li><a href="#/case-health" class="nav-item" data-page="case-health">Нейро-Коучинг</a></li>
-                    <li><a href="#/case-vending" class="nav-item" data-page="case-vending">Автономный Ритейл</a></li>
-                    <li><a href="#/case-crm" class="nav-item" data-page="case-crm">Интеллектуальная CRM</a></li>
-                    <li><a href="#/erp" class="nav-item" data-page="erp">Индустриальная ERP</a></li>
+                    <li class="nav-dropdown-wrapper">
+                        <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-products-trigger">Решения</a>
+                        <ul class="nav-dropdown-menu">
+                            <li><a href="#/product" class="nav-item dropdown-item" data-page="product">Промышленный IoT</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown-wrapper">
+                        <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-dev-trigger">Разработки</a>
+                        <ul class="nav-dropdown-menu">
+                            <li><a href="#/case-finance" class="nav-item dropdown-item" data-page="case-finance">Финансовый ИИ</a></li>
+                            <li><a href="#/case-health" class="nav-item dropdown-item" data-page="case-health">Нейро-Коучинг</a></li>
+                            <li><a href="#/case-vending" class="nav-item dropdown-item" data-page="case-vending">Автономный Ритейл</a></li>
+                            <li><a href="#/case-crm" class="nav-item dropdown-item" data-page="case-crm">Интеллектуальная CRM</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown-wrapper">
+                        <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-future-trigger">Будущие проекты</a>
+                        <ul class="nav-dropdown-menu">
+                            <li><a href="#/erp" class="nav-item dropdown-item" data-page="erp">Индустриальная ERP</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -74,12 +89,27 @@
     <div class="mobile-nav-drawer" id="mobile-nav-drawer">
         <ul class="mobile-nav-list">
             <li><a href="#/" class="mobile-nav-item active" data-page="home">Главная</a></li>
-            <li><a href="#/product" class="mobile-nav-item" data-page="product">Промышленный IoT</a></li>
-            <li><a href="#/case-finance" class="mobile-nav-item" data-page="case-finance">Финансовый ИИ</a></li>
-            <li><a href="#/case-health" class="mobile-nav-item" data-page="case-health">Нейро-Коучинг</a></li>
-            <li><a href="#/case-vending" class="mobile-nav-item" data-page="case-vending">Автономный Ритейл</a></li>
-            <li><a href="#/case-crm" class="mobile-nav-item" data-page="case-crm">Интеллектуальная CRM</a></li>
-            <li><a href="#/erp" class="mobile-nav-item" data-page="erp">Индустриальная ERP</a></li>
+            <li class="mobile-dropdown-wrapper">
+                <a href="javascript:void(0)" class="mobile-nav-item mobile-dropdown-toggle" id="mobile-dropdown-trigger">Решения</a>
+                <ul class="mobile-submenu" id="mobile-submenu">
+                    <li><a href="#/product" class="mobile-nav-item mobile-submenu-item" data-page="product">Промышленный IoT</a></li>
+                </ul>
+            </li>
+            <li class="mobile-dropdown-wrapper">
+                <a href="javascript:void(0)" class="mobile-nav-item mobile-dropdown-toggle" id="mobile-dev-trigger">Разработки</a>
+                <ul class="mobile-submenu" id="mobile-dev-submenu">
+                    <li><a href="#/case-finance" class="mobile-nav-item mobile-submenu-item" data-page="case-finance">Финансовый ИИ</a></li>
+                    <li><a href="#/case-health" class="mobile-nav-item mobile-submenu-item" data-page="case-health">Нейро-Коучинг</a></li>
+                    <li><a href="#/case-vending" class="mobile-nav-item mobile-submenu-item" data-page="case-vending">Автономный Ритейл</a></li>
+                    <li><a href="#/case-crm" class="mobile-nav-item mobile-submenu-item" data-page="case-crm">Интеллектуальная CRM</a></li>
+                </ul>
+            </li>
+            <li class="mobile-dropdown-wrapper">
+                <a href="javascript:void(0)" class="mobile-nav-item mobile-dropdown-toggle" id="mobile-future-trigger">Будущие проекты</a>
+                <ul class="mobile-submenu" id="mobile-future-submenu">
+                    <li><a href="#/erp" class="mobile-nav-item mobile-submenu-item" data-page="erp">Индустриальная ERP</a></li>
+                </ul>
+            </li>
             <li><a href="#/contacts" class="mobile-nav-item" data-page="contacts">Связаться с нами</a></li>
         </ul>
     </div>
@@ -328,9 +358,32 @@
                 <div class="exclusive-container">
                     <div class="exclusive-rights-callout">
                         <div class="callout-glow"></div>
+                        <!-- Patent Seal Decoration -->
+                        <svg class="exclusive-patent-seal" viewBox="0 0 200 200" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="95" stroke="var(--accent-orange)" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" />
+                            <circle cx="100" cy="100" r="85" stroke="var(--accent-orange)" stroke-width="1" opacity="0.3" />
+                            <circle cx="100" cy="100" r="81" stroke="var(--accent-orange)" stroke-width="1.5" opacity="0.6" />
+                            <path d="M 50,140 L 35,185 L 60,175 L 85,185 L 75,145" fill="var(--accent-orange)" opacity="0.15" stroke="var(--accent-orange)" stroke-width="1" />
+                            <path d="M 150,140 L 165,185 L 140,175 L 115,185 L 125,145" fill="var(--accent-orange)" opacity="0.15" stroke="var(--accent-orange)" stroke-width="1" />
+                            <path d="M 100,50 L 135,62 V 105 C 135,130 100,145 100,145 C 100,145 65,130 65,105 V 62 L 100,50 Z" fill="rgba(255, 94, 0, 0.05)" stroke="var(--accent-orange)" stroke-width="2" stroke-linejoin="round" />
+                            <path d="M 100,65 L 104,77 L 116,77 L 107,84 L 110,96 L 100,88 L 90,96 L 93,84 L 84,77 L 96,77 Z" fill="var(--accent-orange)" opacity="0.75" />
+                            <line x1="72" y1="110" x2="128" y2="110" stroke="var(--accent-orange)" stroke-width="1.5" opacity="0.5" />
+                            <line x1="78" y1="118" x2="122" y2="118" stroke="var(--accent-orange)" stroke-width="1" opacity="0.4" />
+                            <defs>
+                                <path id="sealTextPath" d="M 100,175 A 75,75 0 1,1 100.1,175" />
+                            </defs>
+                            <text font-family="monospace" font-size="8.5" font-weight="bold" fill="var(--accent-orange)" letter-spacing="1">
+                                <textPath href="#sealTextPath" startOffset="0%">
+                                    ★ QADR TECHNOLOGY OWNER ★ OFFICIAL EXCLUSIVE PATENTED
+                                </textPath>
+                            </text>
+                        </svg>
                         <div class="callout-content-layout">
                             <div class="callout-left">
-                                <span class="callout-badge">ОФИЦИАЛЬНЫЙ СТАТУС В РК</span>
+                                <span class="callout-badge">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.5" fill="none" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    ОФИЦИАЛЬНЫЙ СТАТУС В РК
+                                </span>
                                 <h2 class="callout-section-title">Соучредительство и эксклюзивные права</h2>
                             </div>
                             <div class="callout-right">
@@ -455,6 +508,12 @@
                             <h3>Контроль качества данных</h3>
                         </div>
                         <p>Непрерывный real-time мониторинг сигналов с буровой для отсечения ложных показаний датчиков и некорректных калибровок в полевых условиях. Исключает ввод грязных данных в модели прогнозирования.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 120 80" fill="none" stroke="currentColor">
+                            <path d="M 0,20 L 120,20 M 0,40 L 120,40 M 0,60 L 120,60 M 30,0 L 30,80 M 60,0 L 60,80 M 90,0 L 90,80" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" stroke-dasharray="2 2" />
+                            <path d="M 0,55 L 15,35 L 30,60 L 45,20 L 60,65 L 75,30 L 90,50 L 105,25 L 120,45" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+                            <path d="M 0,50 Q 20,40 40,48 T 80,42 T 120,45" stroke="var(--accent-orange)" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
                     </div>
                     
                     <!-- Module 2: Auto-recognition -->
@@ -464,16 +523,37 @@
                             <h3>Автораспознавание операций</h3>
                         </div>
                         <p>Машинное определение текущих технологических фаз (бурение слайдом, бурение ротором, СПО, наращивание, промывка, проработка) с точностью до секунды для автоматического цифрового баланса времени.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 120 80" fill="none" stroke="currentColor">
+                            <rect x="10" y="15" width="40" height="8" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" />
+                            <rect x="55" y="15" width="55" height="8" rx="2" fill="rgba(255, 94, 0, 0.15)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <rect x="10" y="35" width="75" height="8" rx="2" fill="rgba(255, 94, 0, 0.15)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <rect x="90" y="35" width="20" height="8" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" />
+                            <rect x="10" y="55" width="30" height="8" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5" />
+                            <rect x="45" y="55" width="40" height="8" rx="2" fill="rgba(255, 94, 0, 0.1)" stroke="var(--accent-orange)" stroke-width="0.5" />
+                            <rect x="90" y="55" width="20" height="8" rx="2" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                        </svg>
                     </div>
                     
                     <!-- Module 3: Stuck-pipe -->
-                    <div class="amirig-module-card">
+                    <div class="amirig-module-card hero-card">
                         <div class="module-card-header">
                             <svg class="module-icon" viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="1.5" fill="none"><path d="m10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                             <h3>Риск-инжиниринг под забой</h3>
                             <span class="module-badge">Предиктив</span>
                         </div>
                         <p>Предупреждение осложнений до их физического проявления: выявление затяжек, посадок, прихватов буровой колонны и выходов из гидравлического окна по сложным динамическим корреляциям.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 200 100" fill="none" stroke="currentColor">
+                            <line x1="0" y1="20" x2="200" y2="20" stroke="rgba(255,94,0,0.15)" stroke-width="1" stroke-dasharray="4 4" />
+                            <line x1="0" y1="80" x2="200" y2="80" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="4 4" />
+                            <path d="M 25,0 V 100 M 50,0 V 100 M 75,0 V 100 M 100,0 V 100 M 125,0 V 100 M 150,0 V 100 M 175,0 V 100" stroke="rgba(255,255,255,0.02)" stroke-width="0.5" />
+                            <rect x="0" y="0" width="200" height="20" fill="rgba(255,94,0,0.02)" />
+                            <path d="M 0,65 L 30,62 L 60,67 L 90,60 L 110,72 L 130,15 L 145,55 L 160,25 L 175,60 L 200,58" stroke="var(--accent-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="130" cy="15" r="3" fill="#FF5E00" />
+                            <circle cx="130" cy="15" r="7" stroke="#FF5E00" stroke-width="0.75" opacity="0.4" />
+                            <text x="138" y="22" fill="var(--accent-orange)" font-size="7" font-family="monospace" font-weight="bold" letter-spacing="0.5">CRITICAL DEVIATION</text>
+                        </svg>
                     </div>
                     
                     <!-- Module 4: Tripping & Hydraulics -->
@@ -483,6 +563,16 @@
                             <h3>Сопровождение СПО и гидравлики</h3>
                         </div>
                         <p>Автоматический расчет динамических давлений свабирования и поршневания, непрерывный контроль доливной емкости при спуско-подъемных операциях и оценка степени очистки ствола.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 120 80" fill="none" stroke="currentColor">
+                            <rect x="15" y="10" width="25" height="60" rx="3" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                            <line x1="15" y1="25" x2="40" y2="25" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                            <line x1="15" y1="40" x2="40" y2="40" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                            <line x1="15" y1="55" x2="40" y2="55" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" />
+                            <rect x="17" y="35" width="21" height="33" rx="1" fill="rgba(255, 94, 0, 0.18)" stroke="var(--accent-orange)" stroke-width="0.5" />
+                            <path d="M 50,60 C 60,60 70,20 80,20 S 90,50 100,50 S 110,30 120,30" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                            <circle cx="80" cy="20" r="1.5" fill="var(--accent-orange)" />
+                        </svg>
                     </div>
                     
                     <!-- Module 5: Reporting & Telegram -->
@@ -492,20 +582,118 @@
                             <h3>Цифровая отчетность и мессенджеры</h3>
                         </div>
                         <p>Автогенерация суточных рапортов СПО и балансов времени (23 отчетные формы). Мгновенная отправка экстренных оповещений по затяжкам и аномалиям в Telegram инженерной службы.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 120 80" fill="none" stroke="currentColor">
+                            <rect x="15" y="10" width="45" height="60" rx="2" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                            <line x1="22" y1="20" x2="40" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" />
+                            <line x1="22" y1="30" x2="53" y2="30" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                            <line x1="22" y1="38" x2="48" y2="38" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                            <line x1="22" y1="46" x2="53" y2="46" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                            <line x1="22" y1="54" x2="35" y2="54" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                            <rect x="75" y="25" width="35" height="20" rx="4" fill="rgba(255,94,0,0.1)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <path d="M 100,45 L 105,49 L 105,42" fill="rgba(255,94,0,0.1)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <line x1="80" y1="31" x2="98" y2="31" stroke="var(--accent-orange)" stroke-width="1" stroke-linecap="round" />
+                            <line x1="80" y1="38" x2="92" y2="38" stroke="var(--accent-orange)" stroke-width="0.75" stroke-linecap="round" />
+                        </svg>
                     </div>
                     
                     <!-- Module 6: Terrixa AI & HSE -->
-                    <div class="amirig-module-card">
+                    <div class="amirig-module-card hero-card">
                         <div class="module-card-header">
                             <svg class="module-icon" viewBox="0 0 24 24" width="26" height="26" stroke="currentColor" stroke-width="1.5" fill="none"><circle cx="12" cy="12" r="3"/><path d="M3 12h3m12 0h3M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1"/></svg>
                             <h3>ИИ-аналитика и видеоконтроль</h3>
                             <span class="module-badge">AI Core</span>
                         </div>
                         <p>Локальный ИИ-поиск Terrixa по архивам инцидентов и регламентам ликвидации аварий. Компьютерное зрение (HSE) для автоматического контроля опасных зон на буровой площадке.</p>
+                        <!-- Micro-graphic -->
+                        <svg class="card-micro-graphic" viewBox="0 0 200 100" fill="none" stroke="currentColor">
+                            <line x1="30" y1="50" x2="70" y2="25" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="30" y1="50" x2="70" y2="75" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="70" y1="25" x2="120" y2="35" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="70" y1="75" x2="120" y2="65" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="120" y1="35" x2="160" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="120" y1="65" x2="160" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="0.75" />
+                            <line x1="70" y1="25" x2="70" y2="75" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" />
+                            <line x1="120" y1="35" x2="120" y2="65" stroke="rgba(255,255,255,0.03)" stroke-width="0.5" />
+                            <circle cx="30" cy="50" r="2" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="70" cy="25" r="2.5" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="70" cy="75" r="2.5" fill="rgba(255,255,255,0.2)" />
+                            <circle cx="120" cy="35" r="3" fill="rgba(255,94,0,0.4)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <circle cx="120" cy="65" r="3" fill="rgba(255,94,0,0.4)" stroke="var(--accent-orange)" stroke-width="0.75" />
+                            <circle cx="160" cy="50" r="4" fill="var(--accent-orange)" />
+                            <path d="M 130,20 L 135,20 L 135,25 M 185,20 L 180,20 L 180,25 M 130,75 L 135,75 L 135,70 M 185,75 L 180,75 L 180,70" stroke="var(--accent-orange)" stroke-width="1.25" fill="none" />
+                            <text x="140" y="47" fill="var(--accent-orange)" font-size="7" font-family="monospace" letter-spacing="0.2">HSE ZONE</text>
+                            <text x="140" y="57" fill="#22C55E" font-size="7" font-family="monospace" letter-spacing="0.2">98.2% SAFE</text>
+                        </svg>
                     </div>
                 </div>
             </div>
 
+            <!-- Live SCADA telemetry block -->
+            <div class="demo-cta-card">
+                <div class="demo-cta-glow"></div>
+                <div class="demo-cta-content">
+                    <span class="demo-cta-badge">Демонстрация</span>
+                    <h3>Интерактивный симулятор телеметрии SCADA</h3>
+                    <p>Попробуйте наш интерактивный SCADA-симулятор бурения. Проверьте реакцию предиктивного анализа аномалий при возникновении критического риска затяжки буровой колонны.</p>
+                </div>
+                <button class="demo-trigger-btn" data-modal="modal-demo-product">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить демо
+                </button>
+            </div>
+
+            <div class="presentation-info-grid">
+                <div class="presentation-card">
+                    <h4>Проблема отрасли</h4>
+                    <p>Аварийные затяжки буровой колонны и гидроудары наносят колоссальный ущерб и приводят к простоям скважин. Ручной контроль параметров бурения оператором не исключает риски человеческого фактора.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Стратегическое решение</h4>
+                    <p>Внедрение беспроводных датчиков ГТИ с предиктивным риск-инжинирингом <span class="card-highlight">Amirig</span>. Алгоритмы автоматически отслеживают аномалии на ранней стадии и прогнозируют прихват инструмента.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Экономический эффект</h4>
+                    <p>Сокращение непроизводительного времени буровых бригад на <span class="card-highlight">40%</span>. Предотвращение одной аварии окупает полную стоимость внедрения системы на кустовой площадке.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 50px; margin-bottom: 20px;">
+                <h2 class="section-title">Сравнение методов мониторинга</h2>
+            </div>
+            <div class="presentation-table-wrapper">
+                <table class="presentation-table">
+                    <thead>
+                        <tr>
+                            <th>Показатель эффективности</th>
+                            <th>Традиционный кабельный метод</th>
+                            <th>Беспроводной комплекс Amirig</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Скорость развертывания системы</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>До 2-3 рабочих смен (монтаж кабелей, коробов)</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Менее 2 часов</strong> (резьбовая установка датчиков)</td>
+                        </tr>
+                        <tr>
+                            <td>Надежность передачи сигналов</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Высокий риск обрывов кабеля механизмами</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>100% стабильность</strong> (промышленный LoRaWAN радиоканал)</td>
+                        </tr>
+                        <tr>
+                            <td>Предиктивный контроль безопасности</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Только визуальный мониторинг по шкалам</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Автоматический ИИ-скоринг рисков</strong> и СМС-оповещения</td>
+                        </tr>
+                        <tr>
+                            <td>Автономность датчиков</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Зависит от внешнего кабельного питания</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>До 5 лет работы</strong> от встроенной батареи</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <!-- Block 3.5: OPI Trial Stages Timeline -->
             <div class="opi-timeline-block">
                 <div class="section-header">
@@ -760,13 +948,788 @@
             </div>
 
             <!-- Block 2: Interactive Demos -->
+            <div class="demo-cta-card">
+                <div class="demo-cta-glow"></div>
+                <div class="demo-cta-content">
+                    <span class="demo-cta-badge">Демонстрация</span>
+                    <h3>ИИ-Финансист и Умный OCR-Аудит</h3>
+                    <p>Попробуйте нашего ИИ-ассистента в действии. Протестируйте голосовой Whisper-ввод распоряжений или запустите сканирование счетов для моментального комплаенс-аудита.</p>
+                </div>
+                <button class="demo-trigger-btn" data-modal="modal-demo-finance">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить демо
+                </button>
+            </div>
+
+            <div class="presentation-info-grid">
+                <div class="presentation-card">
+                    <h4>Финансовая рутина</h4>
+                    <p>Бухгалтеры тратят до 70% рабочего времени на ручной перенос реквизитов первичных документов в ERP-системы, допуская опечатки и пропуская фиктивные счета.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Интеллектуальная сверка</h4>
+                    <p>ИИ-Финансист мгновенно считывает скан-копии документов, распознает казахскую/русскую речь и автоматически проверяет соответствие сумм утвержденным лимитам CAPEX.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Результат для менеджмента</h4>
+                    <p>Скорость ввода и верификации документов возрастает в <span class="card-highlight">8 раз</span>. Полностью исключаются ошибки ввода данных и несанкционированные переводы средств.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 50px; margin-bottom: 20px;">
+                <h2 class="section-title">Сравнение эффективности обработки счетов</h2>
+            </div>
+            <div class="presentation-table-wrapper">
+                <table class="presentation-table">
+                    <thead>
+                        <tr>
+                            <th>Этап обработки платежей</th>
+                            <th>Без использования ИИ</th>
+                            <th>С внедрением ИИ-Финансиста</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Распознавание и классификация счетов</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Ручная сортировка, до 10 минут на документ</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Менее 3 секунд</strong> (автоматическое OCR и PDF-парсинг)</td>
+                        </tr>
+                        <tr>
+                            <td>Проверка лимитов и комплаенса</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Сверка с таблицами Excel вручную</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Моментальный автоматический аудит</strong> по коду закупки</td>
+                        </tr>
+                        <tr>
+                            <td>Формирование платежного поручения</td>
+                            <td class="table-status-bad"><span class="status-icon">✕</span>Ручное копирование БИН и сумм в банк-клиент</td>
+                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Автогенерация реестра</strong> и выгрузка в ERP в 1 клик</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Block 3: Business Results -->
+            <div class="case-results-block">
+                <div class="section-header">
+                    <h2 class="section-title">Бизнес-результаты</h2>
+                    <p class="section-subtitle">Эффект от интеграции решения на предприятии</p>
+                </div>
+                <div class="metrics-grid-3">
+                    <div class="metric-card">
+                        <span class="metric-num">4x</span>
+                        <p class="metric-label"><strong>Ускорение согласования</strong> и оплаты первичных документов за счет автоматического разнесения без ручной сверки.</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-num">100%</span>
+                        <p class="metric-label"><strong>Исключение человеческих ошибок</strong> при вводе транзакций, так как ИИ считывает реквизиты напрямую из документов.</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-num">0%</span>
+                        <p class="metric-label"><strong>Исключение ошибочных платежей</strong> и несогласованного вывода средств благодаря сквозному аудиту договоров.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
+            <div class="technical-presentation-block">
+                <div class="section-header">
+                    <h2 class="section-title">Техническая спецификация решения</h2>
+                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта ИИ-финансиста</p>
+                </div>
+                <div class="slides-accordion">
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">01</span>
+                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Крупные казахстанские холдинги обрабатывают до 50 000 входящих первичных документов (счета-фактуры, акты, накладные) в месяц. Ручной ввод этих данных в 1С и ERP приводит к неизбежным ошибкам, задержкам оплат и рискам перерасхода бюджетов по договорам. Необходима система, способная распознавать любые сканы документов на русском и казахском языках, проводить автоматическую сверку с оригинальным договором и согласовывать платеж без участия человека.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">02</span>
+                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Инфраструктура развернута локально (On-Premise) для обеспечения конфиденциальности. Стек включает OCR-модели детекции текста, локальную LLM-модель Llama-3.1 70B Instruct, запущенную на GPU-серверах под управлением API-конвейера vLLM. База данных PostgreSQL с расширением pgvector используется для семантического поиска и сверки реквизитов компаний.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">03</span>
+                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Используется алгоритм распознавания текста по bounding-box координатам с последующим семантическим маппингом сущностей (Named Entity Recognition). Извлечение структуры (JSON) из текста счета выполняется с помощью Structured Output генерации LLM. Сопоставление названий компаний и номенклатуры товаров производится с помощью расстояния Левенштейна и косинусного сходства векторных эмбеддингов, что гарантирует точность сверки 99.2%.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">04</span>
+                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Скорость обработки входящего счета сокращается с 15 минут до 30 секунд. Исключены ошибочные переплаты сверх лимита Capex договоров (система блокирует счета с превышением сметы). Экономия на ручном труде бухгалтерии составляет более 3 000 000 тенге ежемесячно.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 4: CASE 2 (HEALTH) ================= -->
+        <section id="page-case-health" class="page-section">
+            <div class="case-header dark-navy">
+                <div class="case-header-content">
+                    <span class="case-category">КЕЙС 2: МЕДИА-ПЛАТФОРМА И ИИ-КОУЧИНГ</span>
+                    <h1 class="case-title">Высоконагруженная стриминговая экосистема ментального здоровья с персональным ИИ-терапевтом</h1>
+                    <p class="case-segment"><strong>Сегмент:</strong> Biohacking / Корпоративный B2B и массовый B2C сектор ментального здоровья и продуктивности сотрудников.</p>
+                    <p class="case-summary"><strong>Суть кейса:</strong> Создание масштабного мобильного и веб-сервиса, сочетающего в себе бесперебойный стриминг терапевтического аудиоконтента и интерактивное ИИ-сопровождение пользователя для улучшения качества его жизни. Мы разработали архитектуру с минимальной задержкой воспроизведения и внедрили ИИ-консультанта на базе психотерапевтических практик.</p>
+                </div>
+            </div>
+
+            <!-- Block 2: Player & Chat Simulators -->
+            <div class="demo-cta-card">
+                <div class="demo-cta-glow"></div>
+                <div class="demo-cta-content">
+                    <span class="demo-cta-badge">Демонстрация</span>
+                    <h3>Медитативный плеер и ИИ-Коуч</h3>
+                    <p>Попробуйте интерактивное HealthTech-решение. Запустите расслабляющий плеер звуков природы с круговым визуализатором и начните поддерживающий диалог с ИИ-коучем.</p>
+                </div>
+                <button class="demo-trigger-btn" data-modal="modal-demo-health">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить демо
+                </button>
+            </div>
+
+            <div class="presentation-info-grid">
+                <div class="presentation-card">
+                    <h4>Выгорание сотрудников</h4>
+                    <p>Стресс и эмоциональное истощение сотрудников ключевых департаментов приводят к росту больничных, текучести кадров и падению продуктивности на рабочих местах.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Нейронный коучинг</h4>
+                    <p>Экосистема ментального здоровья использует бинауральные звуковые дорожки для снижения уровня стресса и встроенного <span class="card-highlight">ИИ-терапевта (CBT)</span> для снятия острых эмоциональных состояний.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>HR-эффективность</h4>
+                    <p>Повышение лояльности и вовлеченности персонала на <span class="card-highlight">45%</span>, сокращение затрат на ДМС и создание здоровой психологической среды в коллективе.</p>
+                </div>
+            </div>
+            <!-- Block 3: Business Impact -->
+            <div class="case-results-block">
+                <div class="section-header">
+                    <h2 class="section-title">Бизнес-эффект</h2>
+                    <p class="section-subtitle">Влияние на показатели компании</p>
+                </div>
+                <div class="metrics-grid-2">
+                    <div class="metric-card">
+                        <h3>Повышение продуктивности</h3>
+                        <p>Прямое влияние на показатели удержания кадров, снижение количества больничных и повышение вовлеченности в B2B-сегменте (корпоративные клиенты платформы).</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Абсолютная масштабируемость</h3>
+                        <p>Возможность обслуживать миллионную аудиторию без деградации скорости работы интерфейса и качества динамической генерации контента за счет распределенной облачной архитектуры стриминга.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
+            <div class="technical-presentation-block">
+                <div class="section-header">
+                    <h2 class="section-title">Техническая спецификация решения</h2>
+                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта медиа-платформы</p>
+                </div>
+                <div class="slides-accordion">
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">01</span>
+                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Высокий уровень стресса и выгорания сотрудников на промышленных предприятиях снижает производительность труда на 25% и ведет к увольнениям. Требовалось создать масштабируемый B2B-сервис психологического сопровождения, который предоставляет не просто записи, а динамически генерируемый, персонализированный аудиоконтент под эмоциональное состояние сотрудника в реальном времени.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">02</span>
+                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Высоконагруженный стриминговый бэкенд на Node.js и Fastify, обеспечивающий трансляцию аудиопотоков со сверхмалой задержкой. Аудиосессии кодируются в формат FLAC (Hi-Res Audio). Локально развернута нейросетевая модель Text-to-Speech (TTS) на базе архитектуры Coqui/VITS, которая генерирует голос терапевта на лету, подстраивая тембр и паузы.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">03</span>
+                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Оценка эмоционального состояния пользователя в чате выполняется с помощью NLP-модели Sentiment Analysis (анализ тональности текста). Модель классифицирует маркеры депрессии, тревоги и выгорания, рассчитывая вектор эмоций. На основе этого вектора алгоритм выбирает частоту бинауральных биений (например, альфа-волны 8-12 Гц для релаксации) и синтезирует персонализированный текст медитации.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">04</span>
+                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Снижение текучести кадров в компаниях-клиентах на 18% за первый год использования платформы. Уменьшение количества больничных листов по причине выгорания и психосоматики на 30%. Доступность ИИ-психолога 24/7 для каждого сотрудника без очередей и высоких затрат на штатных терапевтов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 5: CASE 3 (VENDING) ================= -->
+        <section id="page-case-vending" class="page-section">
+            <div class="case-header">
+                <div class="case-header-content">
+                    <span class="case-category">КЕЙС 3: УМНЫЙ РИТЕЙЛ И VENDING-КОНТРОЛЬ</span>
+                    <h1 class="case-title">Автономный комплекс умного ритейла и IoT-микромаркетов самообслуживания</h1>
+                    <p class="case-segment"><strong>Сегмент:</strong> Автоматизация розничной торговли / Смарт-вендинг без участия персонала.</p>
+                    <p class="case-summary"><strong>Суть кейса:</strong> Разработка сквозной экосистемы управления физическими точками продаж: от создания кастомной управляющей платы внутри торгового автомата до мобильного интерфейса покупки в один клик. Мы объединили весовые датчики HX711 с контроллерами ESP32, облачной базой данных и бесконтактными платежами.</p>
+                </div>
+            </div>
+
+            <!-- Block 2: Interactive Smart Fridge -->
+            <div class="demo-cta-card">
+                <div class="demo-cta-glow"></div>
+                <div class="demo-cta-content">
+                    <span class="demo-cta-badge">Демонстрация</span>
+                    <h3>Симулятор микромаркета и оплаты</h3>
+                    <p>Попробуйте симулятор бесконтактной торговли. Протестируйте открытие 3D-двери умного холодильника, весовое распознавание покупок и оплату через Kaspi QR.</p>
+                </div>
+                <button class="demo-trigger-btn" data-modal="modal-demo-vending">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить демо
+                </button>
+            </div>
+
+            <div class="presentation-info-grid">
+                <div class="presentation-card">
+                    <h4>Торговля без персонала</h4>
+                    <p>Классический вендинг продает мало из-за ограниченных размеров автомата и невозможности взять товар в руки. Содержать полноценный магазин дорого из-за высоких цен на аренду и персонал.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Концепция микромаркетов</h4>
+                    <p>Покупатель сканирует Kaspi QR для открытия двери, берет любые сэндвичи и напитки с полок. Высокоточные датчики веса фиксируют взятые товары, а система автоматически списывает оплату.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Финансовые выгоды</h4>
+                    <p>Круглосуточная работа 24/7. Розничная точка располагается на площади всего <span class="card-highlight">1 кв. метр</span>. Средний срок возврата инвестиций (ROI) — от 4 до 5 месяцев.</p>
+                </div>
+            </div>
+            <!-- Block 3: Business Results -->
+            <div class="case-results-block">
+                <div class="section-header">
+                    <h2 class="section-title">Результат автоматизации</h2>
+                    <p class="section-subtitle">Экономический эффект внедрения</p>
+                </div>
+                <div class="metrics-grid-1">
+                    <div class="metric-card full-width-metric">
+                        <span class="metric-num">24/7 автономная работа</span>
+                        <p class="metric-label">Выгода: Полностью автономная торговая точка, работающая без перерывов и праздников, не требующая затрат на заработную плату продавцов и кассиров, со стопроцентной защитой от краж благодаря автоматическому весовому контролю полок и мгновенному списанию средств со счета при выходе.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
+            <div class="technical-presentation-block">
+                <div class="section-header">
+                    <h2 class="section-title">Техническая спецификация решения</h2>
+                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта комплекса умного ритейла</p>
+                </div>
+                <div class="slides-accordion">
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">01</span>
+                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Традиционные вендинговые автоматы ограничены по ассортименту и не позволяют покупателю потрогать товар перед покупкой. Микромаркеты самообслуживания (умные холодильники стеклянного типа) решают эту проблему, но требуют надежного контроля краж. Необходимо с высокой точностью (до 1 грамма) определять взятый товар с полки в реальном времени при постоянной вибрации компрессора холодильника.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">02</span>
+                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Hardware-уровень состоит из контроллеров ESP32 и прецизионных тензодатчиков веса, подключенных через 24-битные аналого-цифровые преобразователи (АЦП) HX711. Данные о весе передаются по протоколу MQTT на облачный сервер. Дверь холодильника оснащена электромагнитным замком, который разблокируется только после авторизации покупателя через Kaspi QR-код.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">03</span>
+                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Каждая полка представляет собой весовую платформу на базе моста Уитстона. Сигнал с АЦП фильтруется с помощью скользящего медианного фильтра для удаления высокочастотных шумов, генерируемых вибрацией двигателя холодильника. Алгоритм вычисляет дельту веса при открытии и закрытии двери, сопоставляет её с базой данных массы товаров и автоматически формирует чек покупателя.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">04</span>
+                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Запуск полностью автономного магазина на площади 1 кв. м. Отсутствие затрат на аренду торговых залов и зарплаты продавцов. Средняя окупаемость одного умного холодильника составляет 4-5 месяцев. Точность распознавания покупок — 99.8%, уровень потерь от краж не превышает 0.1%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 6: CASE 4 (CRM) ================= -->
+        <section id="page-case-crm" class="page-section">
+            <div class="case-header">
+                <div class="case-header-content">
+                    <span class="case-category">КЕЙС 4: CRM И АКАДЕМИЧЕСКАЯ МОБИЛЬНОСТЬ</span>
+                    <h1 class="case-title">Омниканальная CRM-система управления процессами международного образования</h1>
+                    <p class="case-segment"><strong>Сегмент:</strong> Образовательный консалтинг / Глобальная академическая интеграция и мобильность.</p>
+                    <p class="case-summary"><strong>Суть кейса:</strong> Проектирование и создание узкоспециализированной CRM-платформы, полностью координирующей процесс отправки, подготовки документов и зачисления студентов в ведущие мировые университеты. Система автоматизирует воронки, агрегирует чаты и отслеживает критические дедлайны приемных комиссий.</p>
+                </div>
+            </div>
+
+            <!-- Block 2: Interactive CRM Funnel -->
+            <div class="demo-cta-card">
+                <div class="demo-cta-glow"></div>
+                <div class="demo-cta-content">
+                    <span class="demo-cta-badge">Демонстрация</span>
+                    <h3>Интерактивная CRM-панель воронки</h3>
+                    <p>Попробуйте автоматизированную панель воронки. Протестируйте CRM-конвейер сопровождения сделок, автопроверку полноты документов и автовыставление инвойсов.</p>
+                </div>
+                <button class="demo-trigger-btn" data-modal="modal-demo-crm">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Запустить демо
+                </button>
+            </div>
+
+            <div class="presentation-info-grid">
+                <div class="presentation-card">
+                    <h4>Потери в продажах</h4>
+                    <p>Сложные многоэтапные сделки в сфере образования страдают из-за потерь заявок на рутинных шагах: отправке договоров, заполнении анкет и сверке оплат.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>CRM-Автоматизация</h4>
+                    <p>Каждый этап (лид, переписка, документы, анкета, зачисление) полностью оцифрован. Система сама отправляет напоминания и проверяет подлинность документов через OCR-верификацию.</p>
+                </div>
+                <div class="presentation-card">
+                    <h4>Бизнес-метрики</h4>
+                    <p>Рост конверсии из обращения в сделку на <span class="card-highlight">35%</span>. Снижение времени обработки одной заявки менеджером на 60%.</p>
+                </div>
+            </div>
+            <!-- Block 3: Business Results -->
+            <div class="case-results-block">
+                <div class="section-header">
+                    <h2 class="section-title">Бизнес-показатели</h2>
+                    <p class="section-subtitle">Операционные метрики внедрения CRM</p>
+                </div>
+                <div class="metrics-grid-2">
+                    <div class="metric-card">
+                        <span class="metric-num">3x</span>
+                        <p class="metric-label"><strong>Рост производительности кураторов</strong> за счет автоматического ведения лидов и ликвидации ручной рутины.</p>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-num">98%</span>
+                        <p class="metric-label"><strong>Успешность зачисления студентов</strong> благодаря жесткому системному контролю и автопроверке дедлайнов приемных комиссий.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
+            <div class="technical-presentation-block">
+                <div class="section-header">
+                    <h2 class="section-title">Техническая спецификация решения</h2>
+                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта академической CRM</p>
+                </div>
+                <div class="slides-accordion">
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">01</span>
+                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Менеджеры по международному образованию ведут абитуриентов через сложнейшие цепочки: выбор вуза, сбор мотивационных писем, апостилирование, подача заявок, визовое сопровождение. Использование стандартных CRM (типа AmoCRM/Bitrix24) не позволяет контролировать жесткие дедлайны вузов и хранить специфические пакеты документов. Любая пропущенная дата или неверно заполненная анкета означает потерю года для студента.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">02</span>
+                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Монолитная CRM-платформа на стеке Node.js (Express), PostgreSQL и Vue.js. Интегрирован Omnichannel-модуль, объединяющий API WhatsApp Business, Telegram Bot API и почтовые шлюзы IMAP/SMTP в единый чат-центр. Файловое хранилище документов использует шифрование AES-256 для защиты персональных данных студентов.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">03</span>
+                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Реализован движок планирования (Scheduling Engine), который рассчитывает критический путь подачи документов на основе динамически обновляемых дедлайнов приемных комиссий сотен вузов. Алгоритм автоматически повышает приоритет сделки и отправляет PUSH-уведомления менеджеру и клиенту при наступлении контрольных точек.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">04</span>
+                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Увеличение конверсии из заявки в зачисление на 35% за счет жесткого контроля сроков. Один менеджер теперь способен вести до 120 студентов одновременно вместо 30 ранее. Полное исключение риска "потерянных клиентов" и пропущенных дедлайнов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= PAGE 7: ERP PLATFORM ================= -->
+        <section id="page-erp" class="page-section">
+            <div class="case-header monumental-header">
+                <div class="case-header-content">
+                    <span class="case-category">ПЕРСПЕКТИВНЫЙ ENTERPRISE-ПРОЕКТ</span>
+                    <h1 class="case-title">Монолитная локальная ERP-платформа сквозного управления корпоративного уровня для АО</h1>
+                    <p class="case-segment"><strong>Цель проекта:</strong> Заявить о способности создавать независимые решения национального масштаба, привлечь внимание топ-менеджмента крупнейших промышленных конгломератов и акционерных обществ Республики Казахстан.</p>
+                </div>
+            </div>
+
+            <!-- Block 1: Philosophy Visualizer -->
+                <div class="demo-cta-card">
+                    <div class="demo-cta-glow"></div>
+                    <div class="demo-cta-content">
+                        <span class="demo-cta-badge">Демонстрация</span>
+                        <h3>Симуляторы корпоративной ERP-платформы</h3>
+                        <p>Попробуйте монолитные инструменты ERP в действии. Запустите симулятор потоков данных между департаментами и протестируйте 3D-укладку Best-Fit Decreasing.</p>
+                    </div>
+                    <button class="demo-trigger-btn" data-modal="modal-demo-erp">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        Запустить демо-панель
+                    </button>
+                </div><!-- Block 2: Department Interactions -->
             <div class="case-demo-block">
                 <div class="section-header">
-                    <h2 class="section-title">Технические модули и Механика работы</h2>
-                    <p class="section-subtitle">Попробуйте модули голосового ввода и распознавания документов в действии</p>
+                    <h2 class="section-title">Сквозное взаимодействие департаментов АО</h2>
+                    <p class="section-subtitle">Каждый модуль ERP решает специализированные задачи предприятия</p>
                 </div>
+                <div class="columns-grid-3">
+                    <div class="dept-card">
+                        <h4>Закупочный департамент</h4>
+                        <p>Контроль цепочек поставок в реальном времени, автоматический ИИ-скоринг благонадежности контрагентов на базе скоринговых моделей, планирование тендерных процедур и автоматическое бюджетирование. Система автоматически блокирует рисковые закупки до согласования.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h4>Юридический департамент</h4>
+                        <p>Модули автоматической генерации сложных пакетов договоров и спецификаций под проекты, интеллектуальный юридический комплаенс и автоматический аудит правовых рисков сделок с внешними подрядчиками на соответствие внутренним регламентам АО.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h4>Финансы и Бухгалтерия</h4>
+                        <p>Автоматизация налогового, управленческого и бухгалтерского учета. Любая транзакция на производстве (списание сырья датчиками, отгрузка готовой продукции) или в закупках моментально отражается на финансовом балансе всего холдинга в реальном времени.</p>
+                    </div>
+                </div>
+            </div>
 
-                <div class="demo-split-grid">
+            <!-- Block 3: Security & Math Core -->
+                <div class="presentation-info-grid">
+                    <div class="presentation-card">
+                        <h4>Монолитность и Безопасность</h4>
+                        <p>Разрозненный софт создает бреши в безопасности. Наша ERP развертывается строго внутри On-Premise контура предприятия без внешних облачных зависимостей.</p>
+                    </div>
+                    <div class="presentation-card">
+                        <h4>Сквозная интеграция</h4>
+                        <p>Любая транзакция на производстве (списание сырья) или в закупках моментально отражается на финансовом балансе холдинга и доступна на BI дашборде Совета Директоров.</p>
+                    </div>
+                    <div class="presentation-card">
+                        <h4>Математическая оптимизация</h4>
+                        <p>Интеграция 3D Bin Packing алгоритма позволяет автоматически планировать загрузку контейнеров, сокращая логистические затраты на <span class="card-highlight">25-30%</span>.</p>
+                    </div>
+                </div><!-- Block 3.5: Integration Architecture & Tech Stack -->
+            <div class="case-demo-block">
+                <div class="section-header">
+                    <h2 class="section-title">Архитектура данных и Интеграционный стек</h2>
+                    <p class="section-subtitle">Отказоустойчивая инфраструктура корпоративного класса для критических нагрузок</p>
+                </div>
+                <div class="columns-grid-3">
+                    <div class="dept-card">
+                        <h4>Базы данных и Хранилища</h4>
+                        <p><strong>PostgreSQL Cluster:</strong> Транзакционный реестр ERP, финансовый учет, балансы и юридические смарт-контракты. <br><strong>ClickHouse:</strong> Колоночная БД для телеметрии с датчиков и логов. <br><strong>Redis Enterprise:</strong> Кеширование сессий и оперативной памяти SCADA.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h4>Связующее ПО и Протоколы</h4>
+                        <p><strong>gRPC / Protobuf:</strong> Низкозадержечное межсервисное взаимодействие. <br><strong>MQTT / Apache Kafka:</strong> Отказоустойчивый брокер сообщений для обработки до 50 000 IoT-сигналов в секунду. <br><strong>Secure WebSockets:</strong> Двусторонний обмен данными с клиентскими интерфейсами в реальном времени.</p>
+                    </div>
+                    <div class="dept-card">
+                        <h4>Информационная безопасность</h4>
+                        <p><strong>On-Premise контур:</strong> Развертывание в изолированном облаке предприятия. <br><strong>Crypto Core:</strong> Шифрование TLS 1.3 и интеграция с аппаратными модулями HSM. <br><strong>RBAC / LDAP:</strong> Ролевой доступ, синхронизированный с корпоративными политиками каталогов.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: Phased Rollout -->
+            <div class="case-demo-block">
+                <div class="section-header">
+                    <h2 class="section-title">Модель поэтапного внедрения (Снижение B2B-рисков)</h2>
+                    <p class="section-subtitle">Прагматичная методология безопасного запуска систем государственного масштаба</p>
+                </div>
+                <div class="rollout-steps">
+                    <div class="rollout-step">
+                        <div class="step-badge">Шаг 1</div>
+                        <h4>Сроки проектирования</h4>
+                        <p>Полный цикл проектирования, технического анализа и развертывания пилотного сегмента занимает от 6 до 12 месяцев. В этот период мы проводим глубокий технический аудит существующей IT-инфраструктуры и оборудования заказчика.</p>
+                    </div>
+                    <div class="rollout-step">
+                        <div class="step-badge">Шаг 2</div>
+                        <h4>Пилотный проект (MVP)</h4>
+                        <p>Внедрение начинается с локального пилотного проекта на базе одного ключевого подразделения или дочернего предприятия АО. Мы на практике отлаживаем стыковку аппаратного оборудования и софта, проводим испытания под нагрузкой, и только после успешных испытаний масштабируем монолитную ERP на всю структуру холдинга.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 5: Technical Presentation (Detailed Slide Info) -->
+            <div class="technical-presentation-block">
+                <div class="section-header">
+                    <h2 class="section-title">Техническая спецификация решения</h2>
+                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта ERP-платформы</p>
+                </div>
+                <div class="slides-accordion">
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">01</span>
+                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Крупные производственные АО несут огромные логистические потери из-за неэффективного использования грузового пространства контейнеров и фур (в среднем 30% объема перевозится пустым). Ручное планирование загрузки занимает часы и не гарантирует оптимальности. Требовалось создать математический модуль укладки разнородных грузов в трехмерном пространстве и интегрировать его напрямую в контур управления поставками ERP.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">02</span>
+                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Математическое ядро оптимизации написано на языке Go для обеспечения высокой производительности параллельных вычислений. Модель интегрирована в локальную ERP-систему через REST API. Трехмерная интерактивная визуализация схемы укладки для кладовщиков реализована на стороне клиента с помощью библиотеки Three.js.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">03</span>
+                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Задача 3D-укладки (3D Bin Packing) относится к классу NP-трудных задач комбинаторной оптимизации (модификация задачи о рюкзаке). Для её решения в реальном времени применен эвристический алгоритм Best-Fit Decreasing (BFD) с ограничениями по ориентации коробок в пространстве, допустимой нагрузке на нижние слои и балансировке центра тяжести контейнера.</p>
+                        </div>
+                    </div>
+                    <div class="slide-accordion-item">
+                        <button class="slide-accordion-trigger">
+                            <span class="slide-num">04</span>
+                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
+                            <span class="slide-icon">+</span>
+                        </button>
+                        <div class="slide-accordion-content">
+                            <p>Повышение плотности загрузки транспорта с 70% до 94-96%. Снижение общих затрат холдинга на логистику и фрахт на 25%. Исключение порчи грузов при транспортировке благодаря учету прочности упаковки и центра тяжести. Окупаемость модуля на предприятии с собственным автопарком составляет менее 3 месяцев.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACTS / CALLBACK ================= -->
+        <section id="page-contacts" class="page-section">
+            <div class="case-header">
+                <div class="case-header-content">
+                    <span class="case-category">СВЯЗАТЬСЯ С НАМИ</span>
+                    <h1 class="case-title">Обсудить ваш технологический проект</h1>
+                    <p class="case-segment">Оставьте заявку, и наша инженерная группа свяжется с вами для технической консультации.</p>
+                </div>
+            </div>
+            
+            <div class="case-demo-block">
+                <div class="contacts-container-box">
+                    <form class="contact-form" id="main-contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка успешно отправлена.'); this.reset();">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-name">Ваше имя *</label>
+                                <input type="text" id="form-name" required placeholder="Иван Иванов">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-company">Компания</label>
+                                <input type="text" id="form-company" placeholder="АО / ТОО Компания">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="form-email">Электронная почта *</label>
+                                <input type="email" id="form-email" required placeholder="name@company.kz">
+                            </div>
+                            <div class="form-group">
+                                <label for="form-phone">Номер телефона *</label>
+                                <input type="tel" id="form-phone" required placeholder="+7 (707) 123-45-67">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-msg">Описание проекта или технического задания</label>
+                            <textarea id="form-msg" rows="5" placeholder="Напишите о задачах автоматизации, требуемых датчиках или ERP-интеграции..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-cta-orange">Отправить запрос</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo-wrapper footer-logo-wrap">
+                    <img src="img/qadr-logo.png" alt="QADR" class="header-logo-img" onerror="this.style.display='none';">
+                    <span class="logo-text">QADR</span>
+                </div>
+                <p>Инженерные технологические экосистемы промышленного и национального масштаба. Разработка аппаратного (Hardware) и программного (Software) обеспечения в Республике Казахстан.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Разделы сайта</h5>
+                <ul>
+                    <li><a href="#/">Главная</a></li>
+                    <li><a href="#/product">Промышленный IoT</a></li>
+                    <li><a href="#/case-finance">Финансовый ИИ</a></li>
+                    <li><a href="#/case-health">Нейро-Коучинг</a></li>
+                    <li><a href="#/case-vending">Автономный Ритейл</a></li>
+                    <li><a href="#/case-crm">Интеллектуальная CRM</a></li>
+                    <li><a href="#/erp">Индустриальная ERP</a></li>
+                </ul>
+            </div>
+            <div class="footer-contacts">
+                <h5>Контакты</h5>
+                <p>Республика Казахстан, г. Астана</p>
+                <p>Email: info@astana-tech.kz</p>
+                <p>Тел: +7 (7172) 55-00-22</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Инженерный Продакшн. Все права защищены. Локализация в Казахстане.</p>
+        </div>
+    </footer>
+
+    <!-- Libraries via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/webgl-hero.js"></script>
+    <script src="js/webgl-sensor.js"></script>
+    <script src="js/interactive.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/hero-dots.js"></script>
+
+    <!-- ==========================================================================
+         DEMONSTRATION INTERACTIVE MODALS
+         ========================================================================== -->
+    
+    <!-- SCADA Modal -->
+    <div class="demo-modal" id="modal-demo-product">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 class="section-title">Симулятор телеметрии в реальном времени</h2>
+                <p class="section-subtitle">Предиктивная риск-аналитика и автоматический забойный контроль</p>
+            </div>
+            <div class="scada-dashboard-layout" style="display: grid; grid-template-columns: 260px 1fr; gap: 30px; align-items: start;">
+                    <!-- Left: telemetry widgets & status -->
+                    <div class="scada-telemetry-panel" style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="telemetry-widget">
+                            <span class="telemetry-label">СТАТУС СИСТЕМЫ</span>
+                            <span class="sim-status active" style="font-family: monospace; font-size: 1.15rem; font-weight: bold; color: #FF6B00; text-shadow: 0 0 10px rgba(255, 107, 0, 0.4);">AMIRIG ONLINE</span>
+                            <span class="telemetry-meta">Опрос датчиков: 10с</span>
+                        </div>
+                        <div class="telemetry-widget">
+                            <span class="telemetry-label">ЗАБОЙНОЕ ДАВЛЕНИЕ</span>
+                            <span class="telemetry-value" id="scada-pressure" style="font-family: monospace; font-size: 1.4rem; font-weight: bold; color: #fff;">5.40 MPa</span>
+                            <span class="telemetry-meta">Чип АЦП: HX711 (24-бит)</span>
+                        </div>
+                        <div class="telemetry-widget">
+                            <span class="telemetry-label">ТЕМПЕРАТУРА ЗАБОЯ</span>
+                            <span class="telemetry-value" id="scada-temp" style="font-family: monospace; font-size: 1.4rem; font-weight: bold; color: #fff;">42.4 °C</span>
+                            <span class="telemetry-meta">Погрешность: &lt;0.1°C</span>
+                        </div>
+                        <div class="telemetry-widget">
+                            <span class="telemetry-label">УРОВЕНЬ СИГНАЛА</span>
+                            <span class="telemetry-value" id="scada-signal" style="font-family: monospace; font-size: 1.4rem; font-weight: bold; color: #fff;">-78 dBm</span>
+                            <span class="telemetry-meta">Радиоканал LoRaWAN</span>
+                        </div>
+                        <div class="telemetry-widget">
+                            <span class="telemetry-label">НАПРЯЖЕНИЕ БАТАРЕИ</span>
+                            <span class="telemetry-value" id="scada-battery" style="font-family: monospace; font-size: 1.4rem; font-weight: bold; color: #fff;">3.64 V</span>
+                            <span class="telemetry-meta">Литий-тионилхлорид</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: live graph & log output -->
+                    <div class="scada-graph-console" style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
+                        <div class="scada-graph-container" style="position: relative; background: rgba(1, 8, 21, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 20px; box-shadow: inset 0 0 20px rgba(0,0,0,0.8);">
+                            <canvas id="pressure-chart" width="700" height="280" style="display: block; width: 100%; height: auto;"></canvas>
+                            
+                            <!-- Risk warning overlay (smooth CSS fade) -->
+                            <div class="operator-alert-overlay" id="operator-alert-overlay">
+                                <div class="alert-content-box" style="text-align: center; background: #030c07; border: 1.5px solid #FF5E00; padding: 30px 40px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 30px rgba(255, 94, 0, 0.2);">
+                                    <div class="alert-warning-icon" style="width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 94, 0, 0.1); border: 2px solid #FF5E00; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; color: #FF5E00; font-size: 1.5rem; font-weight: bold;">!</div>
+                                    <h4 style="color: #FF5E00; margin-bottom: 12px; font-size: 1.3rem; letter-spacing: -0.01em;">КРИТИЧЕСКИЙ РИСК: ЗАТЯЖКА КОЛОННЫ</h4>
+                                    <p style="font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 24px; line-height: 1.5; max-width: 320px;">Зафиксирована аномальная дельта веса и давления бурового раствора.</p>
+                                    <button class="btn-scan-action" id="alert-close-btn" style="background: linear-gradient(135deg, #FF5E00 0%, #D97706 100%); color: white; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: bold; transition: transform 0.2s ease;">Подтвердить и нейтрализовать</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="scada-logs" id="scada-logs-box">
+                            <!-- Real-time logs filled by JS -->
+                        </div>
+                        
+                        <div class="scada-controls">
+                            <button class="btn-scan-action" id="alert-trigger-btn" style="background: linear-gradient(135deg, #FF5E00 0%, #D97706 100%); color: white; border: none; padding: 14px 28px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 4px 15px rgba(255, 94, 0, 0.25);">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Симулировать аномалию забойных параметров
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finance Modal -->
+    <div class="demo-modal" id="modal-demo-finance">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 class="section-title">Технические модули и Механика работы</h2>
+                <p class="section-subtitle">Попробуйте модули голосового ввода и распознавания документов в действии</p>
+            </div>
+            <div class="demo-split-grid">
                     <!-- Interactive Voice AI-Processing -->
                     <div class="demo-card" id="voice-processing-module">
                         <div class="module-header">
@@ -783,14 +1746,8 @@
                             </div>
 
                             <!-- Voice wave visualization when active -->
-                            <div class="voice-spectrogram" id="voice-waves">
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                                <div class="bar"></div><div class="bar"></div>
+                            <div class="voice-spectrogram-wrap" id="voice-waves" style="position: relative; height: 60px; margin: 20px 0; background: rgba(1, 8, 21, 0.8); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; overflow: hidden; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); opacity: 0.45; transition: opacity 0.3s ease;">
+                                <canvas id="voice-waves-canvas" style="display: block; width: 100%; height: 100%;"></canvas>
                             </div>
 
                             <div class="chat-controls">
@@ -927,100 +1884,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Block 3: Business Results -->
-            <div class="case-results-block">
-                <div class="section-header">
-                    <h2 class="section-title">Бизнес-результаты</h2>
-                    <p class="section-subtitle">Эффект от интеграции решения на предприятии</p>
-                </div>
-                <div class="metrics-grid-3">
-                    <div class="metric-card">
-                        <span class="metric-num">в 4 раза</span>
-                        <p class="metric-label">Сокращение времени согласования и оплаты первичных документов за счет автоматического разнесения и отсутствия необходимости ручного сопоставления.</p>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-num">100%</span>
-                        <p class="metric-label">Исключение человеческих ошибок при вводе транзакций в базу данных, так как ИИ извлекает данные напрямую из документов.</p>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-num">0%</span>
-                        <p class="metric-label">Риск совершения ошибочного или несогласованного платежа благодаря автоматическому сквозному аудиту договоров.</p>
-                    </div>
-                </div>
+    <!-- Health Modal -->
+    <div class="demo-modal" id="modal-demo-health">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 class="section-title">Архитектура и Функционал</h2>
+                <p class="section-subtitle">Протестируйте стриминговый плеер и интерактивный диалог с ИИ-психологом</p>
             </div>
-
-            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
-            <div class="technical-presentation-block">
-                <div class="section-header">
-                    <h2 class="section-title">Техническая спецификация решения</h2>
-                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта ИИ-финансиста</p>
-                </div>
-                <div class="slides-accordion">
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">01</span>
-                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Крупные казахстанские холдинги обрабатывают до 50 000 входящих первичных документов (счета-фактуры, акты, накладные) в месяц. Ручной ввод этих данных в 1С и ERP приводит к неизбежным ошибкам, задержкам оплат и рискам перерасхода бюджетов по договорам. Необходима система, способная распознавать любые сканы документов на русском и казахском языках, проводить автоматическую сверку с оригинальным договором и согласовывать платеж без участия человека.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">02</span>
-                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Инфраструктура развернута локально (On-Premise) для обеспечения конфиденциальности. Стек включает OCR-модели детекции текста, локальную LLM-модель Llama-3.1 70B Instruct, запущенную на GPU-серверах под управлением API-конвейера vLLM. База данных PostgreSQL с расширением pgvector используется для семантического поиска и сверки реквизитов компаний.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">03</span>
-                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Используется алгоритм распознавания текста по bounding-box координатам с последующим семантическим маппингом сущностей (Named Entity Recognition). Извлечение структуры (JSON) из текста счета выполняется с помощью Structured Output генерации LLM. Сопоставление названий компаний и номенклатуры товаров производится с помощью расстояния Левенштейна и косинусного сходства векторных эмбеддингов, что гарантирует точность сверки 99.2%.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">04</span>
-                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Скорость обработки входящего счета сокращается с 15 минут до 30 секунд. Исключены ошибочные переплаты сверх лимита Capex договоров (система блокирует счета с превышением сметы). Экономия на ручном труде бухгалтерии составляет более 3 000 000 тенге ежемесячно.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 4: CASE 2 (HEALTH) ================= -->
-        <section id="page-case-health" class="page-section">
-            <div class="case-header dark-navy">
-                <div class="case-header-content">
-                    <span class="case-category">КЕЙС 2: МЕДИА-ПЛАТФОРМА И ИИ-КОУЧИНГ</span>
-                    <h1 class="case-title">Высоконагруженная стриминговая экосистема ментального здоровья с персональным ИИ-терапевтом</h1>
-                    <p class="case-segment"><strong>Сегмент:</strong> Biohacking / Корпоративный B2B и массовый B2C сектор ментального здоровья и продуктивности сотрудников.</p>
-                    <p class="case-summary"><strong>Суть кейса:</strong> Создание масштабного мобильного и веб-сервиса, сочетающего в себе бесперебойный стриминг терапевтического аудиоконтента и интерактивное ИИ-сопровождение пользователя для улучшения качества его жизни. Мы разработали архитектуру с минимальной задержкой воспроизведения и внедрили ИИ-консультанта на базе психотерапевтических практик.</p>
-                </div>
-            </div>
-
-            <!-- Block 2: Player & Chat Simulators -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Архитектура и Функционал</h2>
-                    <p class="section-subtitle">Протестируйте стриминговый плеер и интерактивный диалог с ИИ-психологом</p>
-                </div>
-
-                <div class="player-chat-grid">
+            <div class="player-chat-grid">
                     <!-- Streaming audio player simulator -->
                     <div class="audio-player-simulator theme-forest" id="audio-player-card">
                         <!-- Premium Cover Wrapper -->
@@ -1088,7 +1963,7 @@
                             </div>
                             <div class="telemetry-item" style="grid-column: span 2; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px; margin-top: 4px;">
                                 <span class="t-label">Edge Node:</span>
-                                <span class="t-val" style="color: #00ffd2;">Almaty-Edge-01 (Ping: 4ms)</span>
+                                <span class="t-val" style="color: #FF6B00;">Almaty-Edge-01 (Ping: 4ms)</span>
                             </div>
                         </div>
 
@@ -1117,6 +1992,12 @@
                             <button class="btn-mood-chip" data-mood="stress">Стресс и тревога</button>
                             <button class="btn-mood-chip" data-mood="fatigue">Выгорание и усталость</button>
                             <button class="btn-mood-chip" data-mood="insomnia">Проблемы со сном</button>
+                        </div>
+
+                        <!-- Chat input area -->
+                        <div class="chat-input-container">
+                            <input type="text" id="chat-psy-input" class="chat-input-field" placeholder="Напишите сообщение...">
+                            <button class="btn-send-message" id="chat-psy-send-btn">ОТПРАВИТЬ</button>
                         </div>
 
                         <!-- Sentiment Analysis Graph panel -->
@@ -1150,96 +2031,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Block 3: Business Impact -->
-            <div class="case-results-block">
-                <div class="section-header">
-                    <h2 class="section-title">Бизнес-эффект</h2>
-                    <p class="section-subtitle">Влияние на показатели компании</p>
-                </div>
-                <div class="metrics-grid-2">
-                    <div class="metric-card">
-                        <h3>Повышение продуктивности</h3>
-                        <p>Прямое влияние на показатели удержания кадров, снижение количества больничных и повышение вовлеченности в B2B-сегменте (корпоративные клиенты платформы).</p>
-                    </div>
-                    <div class="metric-card">
-                        <h3>Абсолютная масштабируемость</h3>
-                        <p>Возможность обслуживать миллионную аудиторию без деградации скорости работы интерфейса и качества динамической генерации контента за счет распределенной облачной архитектуры стриминга.</p>
-                    </div>
-                </div>
+    <!-- Vending Modal -->
+    <div class="demo-modal" id="modal-demo-vending">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" style="max-width: 1100px;" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 class="section-title">Инженерная архитектура (Hardware + Software)</h2>
+                <p class="section-subtitle">Симулятор автономного микромаркета «Әдемі Вендинг»</p>
             </div>
-
-            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
-            <div class="technical-presentation-block">
-                <div class="section-header">
-                    <h2 class="section-title">Техническая спецификация решения</h2>
-                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта медиа-платформы</p>
-                </div>
-                <div class="slides-accordion">
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">01</span>
-                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Высокий уровень стресса и выгорания сотрудников на промышленных предприятиях снижает производительность труда на 25% и ведет к увольнениям. Требовалось создать масштабируемый B2B-сервис психологического сопровождения, который предоставляет не просто записи, а динамически генерируемый, персонализированный аудиоконтент под эмоциональное состояние сотрудника в реальном времени.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">02</span>
-                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Высоконагруженный стриминговый бэкенд на Node.js и Fastify, обеспечивающий трансляцию аудиопотоков со сверхмалой задержкой. Аудиосессии кодируются в формат FLAC (Hi-Res Audio). Локально развернута нейросетевая модель Text-to-Speech (TTS) на базе архитектуры Coqui/VITS, которая генерирует голос терапевта на лету, подстраивая тембр и паузы.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">03</span>
-                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Оценка эмоционального состояния пользователя в чате выполняется с помощью NLP-модели Sentiment Analysis (анализ тональности текста). Модель классифицирует маркеры депрессии, тревоги и выгорания, рассчитывая вектор эмоций. На основе этого вектора алгоритм выбирает частоту бинауральных биений (например, альфа-волны 8-12 Гц для релаксации) и синтезирует персонализированный текст медитации.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">04</span>
-                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Снижение текучести кадров в компаниях-клиентах на 18% за первый год использования платформы. Уменьшение количества больничных листов по причине выгорания и психосоматики на 30%. Доступность ИИ-психолога 24/7 для каждого сотрудника без очередей и высоких затрат на штатных терапевтов.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 5: CASE 3 (VENDING) ================= -->
-        <section id="page-case-vending" class="page-section">
-            <div class="case-header">
-                <div class="case-header-content">
-                    <span class="case-category">КЕЙС 3: УМНЫЙ РИТЕЙЛ И VENDING-КОНТРОЛЬ</span>
-                    <h1 class="case-title">Автономный комплекс умного ритейла и IoT-микромаркетов самообслуживания</h1>
-                    <p class="case-segment"><strong>Сегмент:</strong> Автоматизация розничной торговли / Смарт-вендинг без участия персонала.</p>
-                    <p class="case-summary"><strong>Суть кейса:</strong> Разработка сквозной экосистемы управления физическими точками продаж: от создания кастомной управляющей платы внутри торгового автомата до мобильного интерфейса покупки в один клик. Мы объединили весовые датчики HX711 с контроллерами ESP32, облачной базой данных и бесконтактными платежами.</p>
-                </div>
-            </div>
-
-            <!-- Block 2: Interactive Smart Fridge -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Инженерная архитектура (Hardware + Software)</h2>
-                    <p class="section-subtitle">Симулятор «Умного холодильника» на базе весовых тензодатчиков (HX711)</p>
-                </div>
-
-                <div class="fridge-simulator-grid">
+            <div class="fridge-simulator-grid">
                     <!-- Fridge Visual representation -->
                     <div class="fridge-graphic-box">
                         <div class="fridge-shelf" id="shelf-1" data-weight="1500" data-item="Кола">
@@ -1424,92 +2227,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Block 3: Business Results -->
-            <div class="case-results-block">
-                <div class="section-header">
-                    <h2 class="section-title">Результат автоматизации</h2>
-                    <p class="section-subtitle">Экономический эффект внедрения</p>
-                </div>
-                <div class="metrics-grid-1">
-                    <div class="metric-card full-width-metric">
-                        <span class="metric-num">24/7 автономная работа</span>
-                        <p class="metric-label">Выгода: Полностью автономная торговая точка, работающая без перерывов и праздников, не требующая затрат на заработную плату продавцов и кассиров, со стопроцентной защитой от краж благодаря автоматическому весовому контролю полок и мгновенному списанию средств со счета при выходе.</p>
-                    </div>
-                </div>
+    <!-- CRM Modal -->
+    <div class="demo-modal" id="modal-demo-crm">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 class="section-title">Архитектура платформы и CRM-логика</h2>
+                <p class="section-subtitle">Интерактивный симулятор воронки ведения студента</p>
             </div>
-
-            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
-            <div class="technical-presentation-block">
-                <div class="section-header">
-                    <h2 class="section-title">Техническая спецификация решения</h2>
-                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта комплекса умного ритейла</p>
-                </div>
-                <div class="slides-accordion">
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">01</span>
-                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Традиционные вендинговые автоматы ограничены по ассортименту и не позволяют покупателю потрогать товар перед покупкой. Микромаркеты самообслуживания (умные холодильники стеклянного типа) решают эту проблему, но требуют надежного контроля краж. Необходимо с высокой точностью (до 1 грамма) определять взятый товар с полки в реальном времени при постоянной вибрации компрессора холодильника.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">02</span>
-                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Hardware-уровень состоит из контроллеров ESP32 и прецизионных тензодатчиков веса, подключенных через 24-битные аналого-цифровые преобразователи (АЦП) HX711. Данные о весе передаются по протоколу MQTT на облачный сервер. Дверь холодильника оснащена электромагнитным замком, который разблокируется только после авторизации покупателя через Kaspi QR-код.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">03</span>
-                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Каждая полка представляет собой весовую платформу на базе моста Уитстона. Сигнал с АЦП фильтруется с помощью скользящего медианного фильтра для удаления высокочастотных шумов, генерируемых вибрацией двигателя холодильника. Алгоритм вычисляет дельту веса при открытии и закрытии двери, сопоставляет её с базой данных массы товаров и автоматически формирует чек покупателя.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">04</span>
-                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Запуск полностью автономного магазина на площади 1 кв. м. Отсутствие затрат на аренду торговых залов и зарплаты продавцов. Средняя окупаемость одного умного холодильника составляет 4-5 месяцев. Точность распознавания покупок — 99.8%, уровень потерь от краж не превышает 0.1%.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= PAGE 6: CASE 4 (CRM) ================= -->
-        <section id="page-case-crm" class="page-section">
-            <div class="case-header">
-                <div class="case-header-content">
-                    <span class="case-category">КЕЙС 4: CRM И АКАДЕМИЧЕСКАЯ МОБИЛЬНОСТЬ</span>
-                    <h1 class="case-title">Омниканальная CRM-система управления процессами международного образования</h1>
-                    <p class="case-segment"><strong>Сегмент:</strong> Образовательный консалтинг / Глобальная академическая интеграция и мобильность.</p>
-                    <p class="case-summary"><strong>Суть кейса:</strong> Проектирование и создание узкоспециализированной CRM-платформы, полностью координирующей процесс отправки, подготовки документов и зачисления студентов в ведущие мировые университеты. Система автоматизирует воронки, агрегирует чаты и отслеживает критические дедлайны приемных комиссий.</p>
-                </div>
-            </div>
-
-            <!-- Block 2: Interactive CRM Funnel -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Архитектура платформы и CRM-логика</h2>
-                    <p class="section-subtitle">Интерактивный симулятор воронки ведения студента</p>
-                </div>
-
-                <div class="funnel-container-layout">
+            <div class="funnel-container-layout">
                     <!-- Clickable steps line -->
                     <div class="funnel-steps-bar">
                         <button class="funnel-step-btn active" data-step="lead">
@@ -1556,95 +2285,26 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Block 3: Business Results -->
-            <div class="case-results-block">
-                <div class="section-header">
-                    <h2 class="section-title">Бизнес-показатели</h2>
-                    <p class="section-subtitle">Операционные метрики внедрения CRM</p>
-                </div>
-                <div class="metrics-grid-2">
-                    <div class="metric-card">
-                        <span class="metric-num">в 3 раза</span>
-                        <p class="metric-label">Рост числа успешно обрабатываемых сделок одним куратором-координатором за счет полной ликвидации ручной рутины по сбору документов и автозаполнения форм.</p>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-num">до 98%</span>
-                        <p class="metric-label">Повышение процента успешных зачислений благодаря жесткому системному контролю дедлайнов, автоматическим уведомлениям о недостающих файлах и визовых требованиях.</p>
-                    </div>
-                </div>
+    <!-- ERP Modal (Tabbed content) -->
+    <div class="demo-modal" id="modal-demo-erp">
+        <button class="demo-modal-close" aria-label="Закрыть">&times;</button>
+        <div class="demo-modal-content" data-lenis-prevent>
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2 class="section-title">Презентационные симуляторы ERP</h2>
+                <p class="section-subtitle">Интерактивная демонстрация монолитной платформы АО</p>
             </div>
-
-            <!-- Block 4: Technical Presentation (Detailed Slide Info) -->
-            <div class="technical-presentation-block">
-                <div class="section-header">
-                    <h2 class="section-title">Техническая спецификация решения</h2>
-                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта академической CRM</p>
-                </div>
-                <div class="slides-accordion">
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">01</span>
-                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Менеджеры по международному образованию ведут абитуриентов через сложнейшие цепочки: выбор вуза, сбор мотивационных писем, апостилирование, подача заявок, визовое сопровождение. Использование стандартных CRM (типа AmoCRM/Bitrix24) не позволяет контролировать жесткие дедлайны вузов и хранить специфические пакеты документов. Любая пропущенная дата или неверно заполненная анкета означает потерю года для студента.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">02</span>
-                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Монолитная CRM-платформа на стеке Node.js (Express), PostgreSQL и Vue.js. Интегрирован Omnichannel-модуль, объединяющий API WhatsApp Business, Telegram Bot API и почтовые шлюзы IMAP/SMTP в единый чат-центр. Файловое хранилище документов использует шифрование AES-256 для защиты персональных данных студентов.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">03</span>
-                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Реализован движок планирования (Scheduling Engine), который рассчитывает критический путь подачи документов на основе динамически обновляемых дедлайнов приемных комиссий сотен вузов. Алгоритм автоматически повышает приоритет сделки и отправляет PUSH-уведомления менеджеру и клиенту при наступлении контрольных точек.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">04</span>
-                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Увеличение конверсии из заявки в зачисление на 35% за счет жесткого контроля сроков. Один менеджер теперь способен вести до 120 студентов одновременно вместо 30 ранее. Полное исключение риска "потерянных клиентов" и пропущенных дедлайнов.</p>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="erp-modal-tabs">
+                <button class="erp-tab-btn active" data-tab="erp-tab-flows">Вертикальная интеграция (Потоки данных)</button>
+                <button class="erp-tab-btn" data-tab="erp-tab-packing">Симулятор 3D Bin Packing (Оптимизация логистики)</button>
             </div>
-        </section>
-
-
-        <!-- ================= PAGE 7: ERP PLATFORM ================= -->
-        <section id="page-erp" class="page-section">
-            <div class="case-header monumental-header">
-                <div class="case-header-content">
-                    <span class="case-category">ПЕРСПЕКТИВНЫЙ ENTERPRISE-ПРОЕКТ</span>
-                    <h1 class="case-title">Монолитная локальная ERP-платформа сквозного управления корпоративного уровня для АО</h1>
-                    <p class="case-segment"><strong>Цель проекта:</strong> Заявить о способности создавать независимые решения национального масштаба, привлечь внимание топ-менеджмента крупнейших промышленных конгломератов и акционерных обществ Республики Казахстан.</p>
-                </div>
-            </div>
-
-            <!-- Block 1: Philosophy Visualizer -->
-            <div class="case-demo-block erp-philosophy-block">
-                <div class="section-header">
-                    <h2 class="section-title">Манифест и Философия продукта</h2>
-                    <p class="section-subtitle">Сквозное вертикальное взаимодействие: от физического оборудования до Совета Директоров</p>
-                </div>
-
-                <div class="erp-visualizer-container">
+            
+            <div class="erp-tab-content active" id="erp-tab-flows">
+                <div style="background: rgba(1, 8, 21, 0.5); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.06);">
+                    <div class="erp-visualizer-container">
                     <div class="pulsing-badge large-orange-badge">
                         <span class="pulse-ring"></span>
                         <span class="badge-text">ТЕХНОЛОГИЧЕСКИЙ СУВЕРЕНИТЕТ</span>
@@ -1675,38 +2335,11 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Block 2: Department Interactions -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Сквозное взаимодействие департаментов АО</h2>
-                    <p class="section-subtitle">Каждый модуль ERP решает специализированные задачи предприятия</p>
-                </div>
-                <div class="columns-grid-3">
-                    <div class="dept-card">
-                        <h4>Закупочный департамент</h4>
-                        <p>Контроль цепочек поставок в реальном времени, автоматический ИИ-скоринг благонадежности контрагентов на базе скоринговых моделей, планирование тендерных процедур и автоматическое бюджетирование. Система автоматически блокирует рисковые закупки до согласования.</p>
-                    </div>
-                    <div class="dept-card">
-                        <h4>Юридический департамент</h4>
-                        <p>Модули автоматической генерации сложных пакетов договоров и спецификаций под проекты, интеллектуальный юридический комплаенс и автоматический аудит правовых рисков сделок с внешними подрядчиками на соответствие внутренним регламентам АО.</p>
-                    </div>
-                    <div class="dept-card">
-                        <h4>Финансы и Бухгалтерия</h4>
-                        <p>Автоматизация налогового, управленческого и бухгалтерского учета. Любая транзакция на производстве (списание сырья датчиками, отгрузка готовой продукции) или в закупках моментально отражается на финансовом балансе всего холдинга в реальном времени.</p>
-                    </div>
                 </div>
             </div>
-
-            <!-- Block 3: Security & Math Core -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Безопасность и Математическое ядро</h2>
-                    <p class="section-subtitle">Оптимизация логистики и хранения на базе сложных алгоритмов</p>
-                </div>
-
-                <div class="math-opt-grid">
-                    <div class="math-opt-visual">
+            
+            <div class="erp-tab-content" id="erp-tab-packing">
+                <div class="math-opt-visual">
                         <div class="canvas-title">Симулятор алгоритма 3D Bin Packing</div>
                         <div class="packing-telemetry">
                             <div class="telemetry-widget">
@@ -1741,202 +2374,9 @@
                         </div>
                     </div>
                     
-                    <div class="math-opt-info">
-                        <div class="info-card">
-                            <h5>Абсолютная локальность (On-Premise контур)</h5>
-                            <p>Платформа развертывается строго внутри периметра безопасности самого АО на собственных серверах предприятия. Полная независимость от зарубежных вендоров и облачных сервисов исключает риски внешних блокировок и гарантирует 100% защиты государственной и корпоративной тайны. Это критически важно для стратегических предприятий страны.</p>
-                        </div>
-                        <div class="info-card">
-                            <h5>Математическое ядро оптимизации</h5>
-                            <p>Интеграция алгоритмов решения сложных пространственных и логистических задач (3D Bin Packing и Knapsack problem) позволяет в автоматическом режиме планировать загрузку складов и транспортных контейнеров. Наша система рассчитывает наиболее плотную укладку разнородных грузов в 3D пространстве, сокращая транспортные расходы предприятия на <strong>25 — 30%</strong>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block 3.5: Integration Architecture & Tech Stack -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Архитектура данных и Интеграционный стек</h2>
-                    <p class="section-subtitle">Отказоустойчивая инфраструктура корпоративного класса для критических нагрузок</p>
-                </div>
-                <div class="columns-grid-3">
-                    <div class="dept-card">
-                        <h4>Базы данных и Хранилища</h4>
-                        <p><strong>PostgreSQL Cluster:</strong> Транзакционный реестр ERP, финансовый учет, балансы и юридические смарт-контракты. <br><strong>ClickHouse:</strong> Колоночная БД для телеметрии с датчиков и логов. <br><strong>Redis Enterprise:</strong> Кеширование сессий и оперативной памяти SCADA.</p>
-                    </div>
-                    <div class="dept-card">
-                        <h4>Связующее ПО и Протоколы</h4>
-                        <p><strong>gRPC / Protobuf:</strong> Низкозадержечное межсервисное взаимодействие. <br><strong>MQTT / Apache Kafka:</strong> Отказоустойчивый брокер сообщений для обработки до 50 000 IoT-сигналов в секунду. <br><strong>Secure WebSockets:</strong> Двусторонний обмен данными с клиентскими интерфейсами в реальном времени.</p>
-                    </div>
-                    <div class="dept-card">
-                        <h4>Информационная безопасность</h4>
-                        <p><strong>On-Premise контур:</strong> Развертывание в изолированном облаке предприятия. <br><strong>Crypto Core:</strong> Шифрование TLS 1.3 и интеграция с аппаратными модулями HSM. <br><strong>RBAC / LDAP:</strong> Ролевой доступ, синхронизированный с корпоративными политиками каталогов.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block 4: Phased Rollout -->
-            <div class="case-demo-block">
-                <div class="section-header">
-                    <h2 class="section-title">Модель поэтапного внедрения (Снижение B2B-рисков)</h2>
-                    <p class="section-subtitle">Прагматичная методология безопасного запуска систем государственного масштаба</p>
-                </div>
-                <div class="rollout-steps">
-                    <div class="rollout-step">
-                        <div class="step-badge">Шаг 1</div>
-                        <h4>Сроки проектирования</h4>
-                        <p>Полный цикл проектирования, технического анализа и развертывания пилотного сегмента занимает от 6 до 12 месяцев. В этот период мы проводим глубокий технический аудит существующей IT-инфраструктуры и оборудования заказчика.</p>
-                    </div>
-                    <div class="rollout-step">
-                        <div class="step-badge">Шаг 2</div>
-                        <h4>Пилотный проект (MVP)</h4>
-                        <p>Внедрение начинается с локального пилотного проекта на базе одного ключевого подразделения или дочернего предприятия АО. Мы на практике отлаживаем стыковку аппаратного оборудования и софта, проводим испытания под нагрузкой, и только после успешных испытаний масштабируем монолитную ERP на всю структуру холдинга.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Block 5: Technical Presentation (Detailed Slide Info) -->
-            <div class="technical-presentation-block">
-                <div class="section-header">
-                    <h2 class="section-title">Техническая спецификация решения</h2>
-                    <p class="section-subtitle">Детальное описание архитектуры и бизнес-эффекта ERP-платформы</p>
-                </div>
-                <div class="slides-accordion">
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">01</span>
-                            <span class="slide-title">Технический вызов (Engineering Challenge)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Крупные производственные АО несут огромные логистические потери из-за неэффективного использования грузового пространства контейнеров и фур (в среднем 30% объема перевозится пустым). Ручное планирование загрузки занимает часы и не гарантирует оптимальности. Требовалось создать математический модуль укладки разнородных грузов в трехмерном пространстве и интегрировать его напрямую в контур управления поставками ERP.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">02</span>
-                            <span class="slide-title">Архитектура и Стек (System Architecture)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Математическое ядро оптимизации написано на языке Go для обеспечения высокой производительности параллельных вычислений. Модель интегрирована в локальную ERP-систему через REST API. Трехмерная интерактивная визуализация схемы укладки для кладовщиков реализована на стороне клиента с помощью библиотеки Three.js.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">03</span>
-                            <span class="slide-title">Математическое ядро (Algorithmic Core)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Задача 3D-укладки (3D Bin Packing) относится к классу NP-трудных задач комбинаторной оптимизации (модификация задачи о рюкзаке). Для её решения в реальном времени применен эвристический алгоритм Best-Fit Decreasing (BFD) с ограничениями по ориентации коробок в пространстве, допустимой нагрузке на нижние слои и балансировке центра тяжести контейнера.</p>
-                        </div>
-                    </div>
-                    <div class="slide-accordion-item">
-                        <button class="slide-accordion-trigger">
-                            <span class="slide-num">04</span>
-                            <span class="slide-title">Бизнес-ценность (ROI & Impact)</span>
-                            <span class="slide-icon">+</span>
-                        </button>
-                        <div class="slide-accordion-content">
-                            <p>Повышение плотности загрузки транспорта с 70% до 94-96%. Снижение общих затрат холдинга на логистику и фрахт на 25%. Исключение порчи грузов при транспортировке благодаря учету прочности упаковки и центра тяжести. Окупаемость модуля на предприятии с собственным автопарком составляет менее 3 месяцев.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= CONTACTS / CALLBACK ================= -->
-        <section id="page-contacts" class="page-section">
-            <div class="case-header">
-                <div class="case-header-content">
-                    <span class="case-category">СВЯЗАТЬСЯ С НАМИ</span>
-                    <h1 class="case-title">Обсудить ваш технологический проект</h1>
-                    <p class="case-segment">Оставьте заявку, и наша инженерная группа свяжется с вами для технической консультации.</p>
-                </div>
-            </div>
-            
-            <div class="case-demo-block">
-                <div class="contacts-container-box">
-                    <form class="contact-form" id="main-contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка успешно отправлена.'); this.reset();">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="form-name">Ваше имя *</label>
-                                <input type="text" id="form-name" required placeholder="Иван Иванов">
-                            </div>
-                            <div class="form-group">
-                                <label for="form-company">Компания</label>
-                                <input type="text" id="form-company" placeholder="АО / ТОО Компания">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="form-email">Электронная почта *</label>
-                                <input type="email" id="form-email" required placeholder="name@company.kz">
-                            </div>
-                            <div class="form-group">
-                                <label for="form-phone">Номер телефона *</label>
-                                <input type="tel" id="form-phone" required placeholder="+7 (707) 123-45-67">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="form-msg">Описание проекта или технического задания</label>
-                            <textarea id="form-msg" rows="5" placeholder="Напишите о задачах автоматизации, требуемых датчиках или ERP-интеграции..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-cta-orange">Отправить запрос</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="logo-wrapper footer-logo-wrap">
-                    <img src="img/qadr-logo.png" alt="QADR" class="header-logo-img" onerror="this.style.display='none';">
-                    <span class="logo-text">QADR</span>
-                </div>
-                <p>Инженерные технологические экосистемы промышленного и национального масштаба. Разработка аппаратного (Hardware) и программного (Software) обеспечения в Республике Казахстан.</p>
-            </div>
-            <div class="footer-links">
-                <h5>Разделы сайта</h5>
-                <ul>
-                    <li><a href="#/">Главная</a></li>
-                    <li><a href="#/product">Промышленный IoT</a></li>
-                    <li><a href="#/case-finance">Финансовый ИИ</a></li>
-                    <li><a href="#/case-health">Нейро-Коучинг</a></li>
-                    <li><a href="#/case-vending">Автономный Ритейл</a></li>
-                    <li><a href="#/case-crm">Интеллектуальная CRM</a></li>
-                    <li><a href="#/erp">Индустриальная ERP</a></li>
-                </ul>
-            </div>
-            <div class="footer-contacts">
-                <h5>Контакты</h5>
-                <p>Республика Казахстан, г. Астана</p>
-                <p>Email: info@astana-tech.kz</p>
-                <p>Тел: +7 (7172) 55-00-22</p>
+                    
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Инженерный Продакшн. Все права защищены. Локализация в Казахстане.</p>
-        </div>
-    </footer>
-
-    <!-- Libraries via CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script src="js/webgl-hero.js"></script>
-    <script src="js/webgl-sensor.js"></script>
-    <script src="js/interactive.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/hero-dots.js"></script>
+    </div>
 </body>
 </html>

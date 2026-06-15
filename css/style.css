@@ -6,10 +6,10 @@
 :root {
     --bg-primary: #FFFFFF;
     --bg-secondary: #FAFAFA;
-    --bg-dark: #000E29;
-    --bg-dark-accent: #0A1128;
+    --bg-dark: #16202E;
+    --bg-dark-accent: #1E2435;
     
-    --text-primary: #0A1128;
+    --text-primary: #1E2435;
     --text-secondary: #5E6982;
     --text-light: #FFFFFF;
     --text-light-muted: rgba(255, 255, 255, 0.7);
@@ -40,6 +40,7 @@
 
 html, body {
     width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
     background-color: var(--bg-primary);
     color: var(--text-primary);
@@ -90,7 +91,10 @@ a {
 }
 
 .section-header {
-    margin-bottom: 60px;
+    max-width: var(--container-width);
+    margin: 0 auto 60px auto;
+    padding: 0 24px;
+    box-sizing: border-box;
     text-align: center;
 }
 
@@ -152,7 +156,6 @@ a {
     text-decoration: none !important;
     display: flex;
     align-items: center;
-    margin-right: 40px; /* Prevents menu links from crowding the logo */
 }
 
 .logo-link:hover .logo-wrapper {
@@ -170,43 +173,42 @@ a {
 
 .logo-text {
     font-family: var(--font-title);
-    font-size: 0.95rem; /* Reduced font size */
-    font-weight: 800;
-    letter-spacing: 0.3px; /* Reduced letter spacing */
-    word-spacing: -2px; /* Reduced space between letters of QADR logo text */
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
     color: var(--text-primary);
     transition: var(--transition-fast);
 }
 
-/* When header transitions to a page that has dark background (like ERP or Health) */
+/* dark-header: now unused but kept for JS compatibility — stays white */
 .main-header.dark-header {
-    background: rgba(0, 14, 41, 0.45); /* Increased transparency for dark header */
+    background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    border-bottom: 1px solid var(--border-dark);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(10, 17, 40, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .main-header.dark-header .nav-item {
-    color: var(--text-light);
+    color: var(--text-primary);
 }
 
 .main-header.dark-header .logo-text {
-    color: var(--text-light) !important;
+    color: var(--text-primary) !important;
 }
 
 .main-header.dark-header .search-icon circle, 
 .main-header.dark-header .search-icon path {
-    stroke: var(--text-light);
+    stroke: var(--text-primary);
 }
 
 .main-header.dark-header .search-box input {
-    color: var(--text-light);
-    border-bottom: 1px solid var(--border-dark);
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(10, 17, 40, 0.12);
 }
 
 .main-header.dark-header .burger-btn span {
-    background-color: var(--text-light);
+    background-color: var(--text-primary);
 }
 
 .header-container {
@@ -214,27 +216,35 @@ a {
     height: 100%;
     margin: 0 auto;
     padding: 0 24px;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
+    gap: 0;
+}
+
+/* Center the nav within its flex cell */
+.desktop-nav {
+    display: flex;
+    justify-content: center;
 }
 
 /* Header Navigation Links */
 .desktop-nav .nav-list {
     display: flex;
     list-style: none;
-    gap: 8px;
+    gap: 4px;
 }
 
 .nav-item {
-    padding: 7px 14px; /* Slightly reduced padding to offset border and fit text */
+    padding: 6px 12px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     border-radius: 8px;
     color: var(--text-primary);
     border: 1px solid transparent;
     transition: var(--transition-fast);
+    white-space: nowrap;
 }
 
 .nav-item:hover {
@@ -267,7 +277,8 @@ a {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: flex-end;
+    gap: 16px;
 }
 
 .search-box {
@@ -372,20 +383,152 @@ a {
 /* CTA & Orange Outline Buttons */
 .cta-contact-btn {
     font-family: var(--font-title);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 10px 20px;
+    padding: 10px 22px;
+    background: var(--accent-orange);
     border: 2px solid var(--accent-orange);
     border-radius: 8px;
-    color: var(--accent-orange);
+    color: var(--text-light) !important;
     transition: var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(255, 94, 0, 0.25);
+    display: inline-block;
 }
 
 .cta-contact-btn:hover {
-    background: var(--accent-orange);
-    color: var(--text-light);
+    background: var(--accent-orange-hover);
+    border-color: var(--accent-orange-hover);
+    color: var(--text-light) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 94, 0, 0.35);
+}
+
+/* Navigation Dropdown styling */
+.nav-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-1px) rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown-wrapper:hover .dropdown-toggle::after {
+    transform: translateY(2px) rotate(-135deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(10, 17, 40, 0.08) !important;
+    border-radius: 12px;
+    padding: 10px 0;
+    min-width: 250px;
+    box-shadow: 0 10px 30px rgba(10, 17, 40, 0.08) !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nav-dropdown-wrapper:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(8px);
+}
+
+.nav-dropdown-menu li {
+    width: 100%;
+    list-style: none;
+}
+
+.nav-dropdown-menu .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    color: var(--text-primary) !important;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    text-align: left;
+    transition: var(--transition-fast);
+}
+
+.nav-dropdown-menu .dropdown-item:hover {
+    background: rgba(255, 94, 0, 0.06) !important;
+    color: var(--accent-orange) !important;
+    padding-left: 24px;
+}
+
+.nav-dropdown-menu .dropdown-item.active {
+    background: rgba(255, 94, 0, 0.08) !important;
+    color: var(--accent-orange) !important;
+    font-weight: 600;
+}
+
+
+/* Mobile dropdown & submenu */
+.mobile-submenu {
+    list-style: none;
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.mobile-submenu.active {
+    max-height: 300px;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-dropdown-toggle::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.open::after {
+    transform: rotate(-135deg);
+}
+
+.mobile-submenu-item {
+    font-size: 0.9rem;
+    padding: 8px 12px;
 }
 
 .btn-cta-orange {
@@ -616,7 +759,7 @@ a {
 .ai-psychologist-chat,
 .fridge-graphic-box,
 .fridge-checkout-box {
-    background: rgba(10, 17, 40, 0.92) !important; /* Semi-transparent dark navy */
+    background: rgba(22, 32, 46, 0.95) !important; /* Semi-transparent deep graphite */
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
@@ -647,6 +790,7 @@ a {
 .metric-card .metric-num,
 .dept-card h4,
 .rollout-step h3,
+.rollout-step h4,
 .fridge-checkout-box h3,
 .fridge-checkout-box h4 {
     color: #0A1128 !important; /* Strong dark navy headings */
@@ -807,55 +951,50 @@ a {
 /* ==========================================================================
    SCROLLED HEADER GLASSMORPHIC DARK BLUE TRANSITION STYLE
    ========================================================================== */
+/* Scrolled header: stays white, becomes more solid and adds shadow */
 .main-header.scrolled-header {
-    background: rgba(0, 14, 41, 0.55) !important; /* Matches dark-header transition */
-    border-bottom: 1px solid var(--border-dark) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom: 1px solid rgba(10, 17, 40, 0.08) !important;
     backdrop-filter: blur(30px) !important;
     -webkit-backdrop-filter: blur(30px) !important;
-    box-shadow: 0 10px 30px rgba(0, 8, 21, 0.25) !important;
+    box-shadow: 0 4px 24px rgba(10, 17, 40, 0.08) !important;
 }
 
 .main-header.scrolled-header .nav-item {
-    color: var(--text-light) !important;
+    color: var(--text-primary) !important;
 }
 
 .main-header.scrolled-header .logo-text {
-    color: var(--text-light) !important;
+    color: var(--text-primary) !important;
 }
 
-.main-header.scrolled-header .search-icon circle, 
+.main-header.scrolled-header .search-icon circle,
 .main-header.scrolled-header .search-icon path {
-    stroke: var(--text-light) !important;
+    stroke: var(--text-primary) !important;
 }
 
 .main-header.scrolled-header .search-box input {
-    color: var(--text-light) !important;
-    border-bottom: 1px solid var(--border-dark) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid rgba(10, 17, 40, 0.12) !important;
 }
 
 .main-header.scrolled-header .burger-btn span {
-    background-color: var(--text-light) !important;
+    background-color: var(--text-primary) !important;
 }
 
 .main-header.scrolled-header .nav-item:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 94, 0, 0.05) !important;
+    border: 1px solid rgba(255, 94, 0, 0.12) !important;
     color: var(--accent-orange) !important;
 }
 
 .main-header.scrolled-header .nav-item.active {
-    background: rgba(255, 255, 255, 0.12) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    background: rgba(255, 94, 0, 0.08) !important;
+    border: 1px solid rgba(255, 94, 0, 0.18) !important;
     color: var(--accent-orange) !important;
     font-weight: 600;
 }
 
-.main-header.scrolled-header .cta-contact-btn {
-    border-color: var(--accent-orange) !important;
-    color: var(--accent-orange) !important;
-}
-
-.main-header.scrolled-header .cta-contact-btn:hover {
-    background: var(--accent-orange) !important;
-    color: var(--text-light) !important;
+body.modal-open {
+    overflow: hidden !important;
 }
