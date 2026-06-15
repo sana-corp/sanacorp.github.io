@@ -309,6 +309,7 @@
     // 1. TEASER ROTATING SENSOR (PAGE 1)
     // ==========================================
     function initTeaserSensor() {
+        if (window.innerWidth <= 768) return;
         const container = document.getElementById('teaser-3d-visual-container');
         if (!container) return;
 
@@ -369,6 +370,7 @@
     // 2. PRODUCT MAIN SENSOR 360 DEGREES (PAGE 2)
     // ==========================================
     function initProductSensor() {
+        if (window.innerWidth <= 768) return;
         const container = document.getElementById('sensor-3d-view');
         if (!container) return;
 
@@ -471,6 +473,7 @@
     // 3. EXPLODED HARDWARE MODEL (PAGE 2)
     // ==========================================
     function initExplodedSensor() {
+        if (window.innerWidth <= 768) return false;
         const container = document.getElementById('sensor-exploded-view');
         if (!container) return false;
 
@@ -708,9 +711,16 @@
     }
 
     window.addEventListener('resize', resizeCanvases);
-
     window.addEventListener('page-swapped', (e) => {
         const activePage = e.detail.page;
+
+        if (window.innerWidth <= 768) {
+            isProductPageActive = false;
+            if (productFrameId) cancelAnimationFrame(productFrameId);
+            if (teaserFrameId) cancelAnimationFrame(teaserFrameId);
+            gsap.ticker.remove(renderExplodedOnce);
+            return;
+        }
 
         if (activePage === 'home') {
             isProductPageActive = false;
@@ -737,6 +747,7 @@
 
     // Run teaser immediately if index is loaded at home
     setTimeout(() => {
+        if (window.innerWidth <= 768) return;
         const hash = window.location.hash || '#/';
         if (hash === '#/') {
             initTeaserSensor();

@@ -71,6 +71,7 @@
     }
 
     function init() {
+        if (window.innerWidth <= 768) return;
         container = document.getElementById('hero-3d-canvas-container');
         if (!container) return;
 
@@ -307,6 +308,10 @@
 
     // 7. Watch for routing swap events to handle CPU footprint
     window.addEventListener('page-swapped', (e) => {
+        if (window.innerWidth <= 768) {
+            stop();
+            return;
+        }
         if (e.detail.page === 'home') {
             if (!renderer) {
                 init();
@@ -322,6 +327,7 @@
 
     // Run immediately if index is loaded at home
     setTimeout(() => {
+        if (window.innerWidth <= 768) return;
         const hash = window.location.hash || '#/';
         if (hash === '#/' && !renderer) {
             init();

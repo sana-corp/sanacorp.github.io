@@ -729,6 +729,51 @@ a {
     .footer-brand {
         grid-column: span 1;
     }
+    
+    /* Hide the contact button from header on mobile */
+    .header-actions .cta-contact-btn {
+        display: none !important;
+    }
+    
+    /* Make the logo smaller on mobile */
+    .header-logo-img {
+        height: 28px !important;
+    }
+    .logo-text {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Style contacts button in mobile menu */
+    .mobile-nav-drawer .mobile-contacts-btn {
+        display: block !important;
+        text-align: center !important;
+        background: var(--accent-orange) !important;
+        color: var(--text-light) !important;
+        padding: 12px 24px !important;
+        border-radius: 8px !important;
+        font-family: var(--font-title) !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        font-size: 0.95rem !important;
+        margin-top: 15px !important;
+        box-shadow: 0 4px 14px rgba(255, 94, 0, 0.25) !important;
+        transition: var(--transition-fast) !important;
+    }
+    .mobile-nav-drawer .mobile-contacts-btn:hover {
+        background: var(--accent-orange-hover) !important;
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 20px rgba(255, 94, 0, 0.35) !important;
+        padding-left: 24px !important; /* Keep center padding */
+    }
+    
+    /* Hide 3D WebGL canvases on mobile for performance and layout readability */
+    #hero-3d-canvas-container,
+    #sensor-3d-view,
+    #teaser-3d-visual-container,
+    #sensor-exploded-view {
+        display: none !important;
+    }
 }
 
 /* ==========================================================================
