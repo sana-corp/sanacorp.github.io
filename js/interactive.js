@@ -1481,7 +1481,7 @@
         const boardX = w * 0.5;
 
         // Draw background curved connection lines
-        ctx.strokeStyle = 'rgba(192, 247, 154, 0.08)';
+        ctx.strokeStyle = 'rgba(255, 107, 0, 0.15)';
         ctx.lineWidth = 1.5;
 
         // Bottom to Mid

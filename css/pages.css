@@ -5110,16 +5110,18 @@
 }
 
 .presentation-table th:nth-child(2) {
-    background: rgba(229, 62, 62, 0.07);
-    color: #C53030;
+    background: #FFF5F5 !important;
+    color: #E53E3E !important;
     text-align: center;
-    border-right: 1px solid rgba(229, 62, 62, 0.12);
+    border-bottom: 2px solid #FEE2E2 !important;
+    border-right: 1px solid #FEE2E2 !important;
 }
 
 .presentation-table th:last-child {
-    background: rgba(56, 161, 105, 0.07);
-    color: #276749;
+    background: #F0FDF4 !important;
+    color: #38A169 !important;
     text-align: center;
+    border-bottom: 2px solid #C6F6D5 !important;
     border-right: none;
 }
 
@@ -5128,17 +5130,17 @@
 }
 
 .presentation-table tbody tr:hover .table-status-bad {
-    background: rgba(254, 215, 215, 0.5);
+    background: #FFF0F0 !important;
 }
 
 .presentation-table tbody tr:hover .table-status-good {
-    background: rgba(198, 246, 213, 0.5);
+    background: #E8FDF0 !important;
 }
 
 .presentation-table td {
     padding: 20px 24px;
-    border-bottom: 1px solid rgba(10, 17, 40, 0.06);
-    border-right: 1px solid rgba(10, 17, 40, 0.05);
+    border-bottom: 1px solid rgba(10, 17, 40, 0.05);
+    border-right: 1px solid rgba(10, 17, 40, 0.04);
     font-size: 0.9rem;
     line-height: 1.6;
     vertical-align: top;
@@ -5147,10 +5149,10 @@
 
 .presentation-table td:first-child {
     color: var(--text-primary, #0A1128);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
-    background: #F8F9FB;
-    border-right: 2px solid rgba(10, 17, 40, 0.07);
+    background: #F8F9FA !important;
+    border-right: 2px solid rgba(10, 17, 40, 0.06);
     vertical-align: middle;
 }
 
@@ -5162,10 +5164,10 @@
     border-bottom: none;
 }
 
-/* Bad column — warm red tint */
+/* Bad column — soft rose tint */
 .table-status-bad {
-    background: rgba(254, 235, 235, 0.85);
-    color: #742A2A;
+    background: #FFF9F9 !important;
+    color: #4A5568 !important; /* Graphite readability */
     font-size: 0.88rem;
     line-height: 1.6;
     transition: background 0.2s ease;
@@ -5177,9 +5179,9 @@
     justify-content: center;
     width: 22px;
     height: 22px;
-    background: #FEB2B2;
-    color: #9B2C2C;
-    font-weight: 900;
+    background: #FEE2E2 !important;
+    color: #EF4444 !important;
+    font-weight: 700;
     font-size: 0.65rem;
     border-radius: 50%;
     margin-right: 10px;
@@ -5187,10 +5189,10 @@
     vertical-align: middle;
 }
 
-/* Good column — fresh green tint with orange accent for key numbers */
+/* Good column — soft sage green tint with orange accent for key numbers */
 .table-status-good {
-    background: rgba(232, 250, 239, 0.9);
-    color: var(--text-primary, #0A1128);
+    background: #F4FDF7 !important;
+    color: #1A202C !important;
     font-size: 0.88rem;
     line-height: 1.6;
     transition: background 0.2s ease;
@@ -5209,14 +5211,111 @@
     justify-content: center;
     width: 22px;
     height: 22px;
-    background: #9AE6B4;
-    color: #22543D;
-    font-weight: 900;
+    background: #DCFCE7 !important;
+    color: #22C55E !important;
+    font-weight: 700;
     font-size: 0.65rem;
     border-radius: 50%;
     margin-right: 10px;
     flex-shrink: 0;
     vertical-align: middle;
+}
+
+/* ============================================================
+   RESPONSIVE MOBILE STACKED LAYOUT FOR INFOGRAPHIC TABLES
+   ============================================================ */
+@media (max-width: 768px) {
+    .presentation-table-wrapper {
+        box-shadow: none !important;
+        background: transparent !important;
+        overflow-x: visible !important;
+        width: 100% !important;
+        margin: 16px 0 !important;
+        padding: 0 16px !important;
+    }
+    .presentation-table {
+        display: block !important;
+        border: none !important;
+        background: transparent !important;
+    }
+    .presentation-table thead {
+        display: none !important;
+    }
+    .presentation-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+    }
+    .presentation-table tbody tr {
+        display: block !important;
+        background: #FFFFFF !important;
+        border: 1px solid #E2E8F0 !important;
+        border-radius: 16px !important;
+        padding: 20px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+    }
+    .presentation-table td {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* First cell: Indicator Title */
+    .presentation-table td:first-child {
+        font-size: 1.0rem !important;
+        font-weight: 800 !important;
+        color: #1A202C !important;
+        margin-bottom: 14px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid #F0F4F8 !important;
+        background: transparent !important;
+    }
+    
+    /* Bad Column cell */
+    .presentation-table td.table-status-bad {
+        margin-bottom: 10px !important;
+        padding: 12px 14px !important;
+        background: #FFF9F9 !important;
+        border: 1px solid #FEE2E2 !important;
+        border-radius: 12px !important;
+        font-size: 0.88rem !important;
+    }
+    .presentation-table td.table-status-bad::before {
+        content: "Традиционный метод: " !important;
+        display: block !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        color: #E53E3E !important;
+        margin-bottom: 6px !important;
+        letter-spacing: 0.04em !important;
+    }
+    
+    /* Good Column cell */
+    .presentation-table td.table-status-good {
+        padding: 14px 16px !important;
+        background: #F0FDF4 !important;
+        border: 1px solid #C6F6D5 !important;
+        border-radius: 12px !important;
+        font-size: 0.9rem !important;
+        box-shadow: 0 2px 4px rgba(34, 197, 94, 0.03) !important;
+    }
+    .presentation-table td.table-status-good::before {
+        content: "Решение QADR: " !important;
+        display: block !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        color: #38A169 !important;
+        margin-bottom: 6px !important;
+        letter-spacing: 0.04em !important;
+    }
 }
 
 /* Custom scrollbar styles for light modals */
@@ -5743,5 +5842,568 @@ table,
     .scada-dashboard-layout {
         grid-template-columns: 1fr !important;
     }
+}
+
+/* ==========================================================================
+   HIGH-END SAAS / WEB3 APPLE-STYLE MINIMALIST THEMING OVERRIDES
+   ========================================================================== */
+
+/* 1. Modal Content Grid Backplane & Faint Orange Ambient Glows */
+.demo-modal-content {
+    background-color: #FFFFFF !important;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 107, 0, 0.03) 0%, transparent 40%),
+        radial-gradient(rgba(10, 17, 40, 0.025) 1.5px, transparent 1.5px) !important;
+    background-size: 100% 100%, 100% 100%, 24px 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+/* 2. SCADA (Telemetry & Control) Widgets Styling Overrides */
+.telemetry-widget {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+.telemetry-widget:hover {
+    transform: translateY(-4px) !important;
+    border-color: #FF6B00 !important;
+    box-shadow: 0 12px 20px -5px rgba(255, 107, 0, 0.08) !important;
+}
+.telemetry-label {
+    color: #718096 !important;
+    font-weight: 700 !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.06em !important;
+}
+.telemetry-value {
+    color: #1A202C !important;
+    text-shadow: none !important;
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+}
+.telemetry-meta {
+    color: #A0AEC0 !important;
+    font-size: 0.68rem !important;
+}
+.sim-status.active {
+    color: #FF6B00 !important;
+    text-shadow: none !important;
+}
+.scada-graph-container {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+    padding: 24px !important;
+}
+.operator-alert-overlay {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+.alert-content-box {
+    background: #FFFFFF !important;
+    border: 1.5px solid #FF6B00 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 0 30px rgba(255, 107, 0, 0.05) !important;
+    border-radius: 20px !important;
+}
+.alert-content-box h4 {
+    color: #FF6B00 !important;
+}
+.alert-content-box p {
+    color: #4A5568 !important;
+}
+
+/* 3. Global Logs Formatting (SCADA, Vending, ERP) */
+.console-log, .scada-logs, .bin-pack-logs-box .console-log {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    color: #2D3748 !important;
+    text-shadow: none !important;
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    box-shadow: none !important;
+}
+.console-log .log-row, .scada-logs .log-row {
+    color: #4A5568 !important;
+}
+.console-log .log-placeholder, .scada-logs .log-placeholder {
+    color: #A0AEC0 !important;
+}
+
+/* 4. Document Parsing & OCR Simulator */
+.doc-preview-pane {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: none !important;
+}
+.mock-document {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
+}
+.btn-select-doc {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #4A5568 !important;
+    border-radius: 50px !important;
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+.btn-select-doc:hover {
+    border-color: #FF6B00 !important;
+    color: #FF6B00 !important;
+}
+.btn-select-doc.active {
+    background: #FF6B00 !important;
+    border-color: #FF6B00 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.15) !important;
+}
+.btn-select-doc[data-doc="invoice-err"]:hover {
+    background: rgba(229, 62, 98, 0.05) !important;
+    border-color: #E53E3E !important;
+    color: #E53E3E !important;
+}
+.btn-select-doc[data-doc="invoice-err"].active {
+    background: #E53E3E !important;
+    border-color: #E53E3E !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(229, 62, 98, 0.15) !important;
+}
+
+/* 5. Vending (Smart Fridge) UI Cleanup */
+.fridge-shelf {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-bottom: 3px solid #FF6B00 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(10, 17, 40, 0.03) !important;
+}
+.mock-bottle {
+    border: 1px solid rgba(255, 107, 0, 0.15) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06) !important;
+}
+.mock-sandwich {
+    border: 1px solid #D8B88F !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06) !important;
+}
+.fridge-checkout-box {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 20px !important;
+}
+.fridge-checkout-box,
+.fridge-checkout-box h4,
+.fridge-checkout-box h3,
+.fridge-checkout-box strong,
+.fridge-checkout-box span:not(.total-price):not(.qr-brand-dot):not(.qr-pay-chip),
+.fridge-checkout-box p {
+    color: #1A202C !important;
+}
+.fridge-checkout-box .total-price {
+    color: #FF6B00 !important;
+}
+.fridge-checkout-box .qr-brand-label,
+.fridge-checkout-box .qr-brand-label span {
+    color: #FF6B00 !important;
+}
+.fridge-checkout-box .qr-scan-label {
+    color: #718096 !important;
+}
+.fridge-checkout-box .empty-cart-msg {
+    color: #A0AEC0 !important;
+}
+.fridge-checkout-box .cart-item-row span:first-child {
+    color: #1A202C !important;
+}
+.qr-checkout-pane {
+    border-top-color: #EDF2F7 !important;
+}
+.qr-svg-frame {
+    background: #FFFFFF !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 107, 0, 0.1) !important;
+}
+/* Recolor SVG QR Code dynamically using attributes selectors */
+.qr-svg rect[fill="#0A1128"] {
+    fill: #FFFFFF !important;
+}
+.qr-svg rect[fill="#FFFFFF"] {
+    fill: #1A202C !important;
+}
+.qr-svg rect[fill="rgba(255,255,255,0.3)"] {
+    fill: #E2E8F0 !important;
+}
+.qr-pay-chip {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #4A5568 !important;
+}
+
+/* ==========================================================================
+   HIGH-END SAAS / WEB3 APPLE-STYLE MINIMALIST THEMING OVERRIDES
+   ========================================================================== */
+
+/* Premium Floating Scrollbar to prevent overflow of rounded corners */
+.demo-modal-content::-webkit-scrollbar,
+.chat-area::-webkit-scrollbar,
+.console-log::-webkit-scrollbar,
+.scada-logs::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.demo-modal-content::-webkit-scrollbar-track,
+.chat-area::-webkit-scrollbar-track,
+.console-log::-webkit-scrollbar-track,
+.scada-logs::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.demo-modal-content::-webkit-scrollbar-thumb,
+.chat-area::-webkit-scrollbar-thumb,
+.console-log::-webkit-scrollbar-thumb,
+.scada-logs::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 107, 0, 0.18) !important;
+    border-radius: 20px !important;
+    border: 3px solid transparent !important;
+    background-clip: padding-box !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.demo-modal-content::-webkit-scrollbar-thumb:hover,
+.chat-area::-webkit-scrollbar-thumb:hover,
+.console-log::-webkit-scrollbar-thumb:hover,
+.scada-logs::-webkit-scrollbar-thumb:hover {
+    background-color: #FF6B00 !important;
+}
+
+/* 1. Modal Content Grid Backplane & Faint Orange Ambient Glows */
+.demo-modal-content {
+    background-color: #FFFFFF !important;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 107, 0, 0.03) 0%, transparent 40%),
+        radial-gradient(rgba(10, 17, 40, 0.025) 1.5px, transparent 1.5px) !important;
+    background-size: 100% 100%, 100% 100%, 24px 24px !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Chat Action Header: Remove orange line and style beautifully with horizontal divider */
+.chat-action-header {
+    border-left: none !important;
+    padding-left: 0 !important;
+    color: #718096 !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 14px !important;
+    text-transform: uppercase !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+.chat-action-header::after {
+    content: '' !important;
+    flex: 1 !important;
+    height: 1px !important;
+    background: #E2E8F0 !important;
+}
+
+/* 2. SCADA (Telemetry & Control) Widgets Styling Overrides */
+.telemetry-widget {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+.telemetry-widget:hover {
+    transform: translateY(-4px) !important;
+    border-color: #E2E8F0 !important;
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05) !important;
+}
+.telemetry-label {
+    color: #718096 !important;
+    font-weight: 700 !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.06em !important;
+}
+.telemetry-value {
+    color: #1A202C !important;
+    text-shadow: none !important;
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+}
+.telemetry-meta {
+    color: #A0AEC0 !important;
+    font-size: 0.68rem !important;
+}
+.sim-status.active {
+    color: #FF6B00 !important;
+    text-shadow: none !important;
+}
+.scada-graph-container {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03) !important;
+    padding: 24px !important;
+}
+.operator-alert-overlay {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+.alert-content-box {
+    background: #FFFFFF !important;
+    border: 1.5px solid #FF6B00 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 0 30px rgba(255, 107, 0, 0.05) !important;
+    border-radius: 20px !important;
+}
+.alert-content-box h4 {
+    color: #FF6B00 !important;
+}
+.alert-content-box p {
+    color: #4A5568 !important;
+}
+
+/* 3. Global Logs Formatting (SCADA, Vending, ERP) */
+.console-log, .scada-logs, .bin-pack-logs-box .console-log {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    color: #2D3748 !important;
+    text-shadow: none !important;
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    box-shadow: none !important;
+}
+.console-log .log-row, .scada-logs .log-row {
+    color: #4A5568 !important;
+}
+.console-log .log-placeholder, .scada-logs .log-placeholder {
+    color: #A0AEC0 !important;
+}
+
+/* 4. Document Parsing & OCR Simulator */
+.doc-preview-pane {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: none !important;
+}
+.mock-document {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04) !important;
+}
+.btn-select-doc {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #4A5568 !important;
+    border-radius: 50px !important;
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+.btn-select-doc:hover {
+    border-color: #FF6B00 !important;
+    color: #FF6B00 !important;
+}
+.btn-select-doc.active {
+    background: #FF6B00 !important;
+    border-color: #FF6B00 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.15) !important;
+}
+.btn-select-doc[data-doc="invoice-err"]:hover {
+    background: rgba(229, 62, 98, 0.05) !important;
+    border-color: #E53E3E !important;
+    color: #E53E3E !important;
+}
+.btn-select-doc[data-doc="invoice-err"].active {
+    background: #E53E3E !important;
+    border-color: #E53E3E !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(229, 62, 98, 0.15) !important;
+}
+
+/* 5. Vending (Smart Fridge) UI Cleanup */
+.fridge-shelf {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-bottom: 1px solid #E2E8F0 !important; /* Removed orange bottom border */
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(10, 17, 40, 0.03) !important;
+}
+.mock-bottle {
+    border: 1px solid rgba(255, 107, 0, 0.15) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06) !important;
+}
+.mock-sandwich {
+    border: 1px solid #D8B88F !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06) !important;
+}
+.fridge-checkout-box {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04) !important;
+    border-radius: 20px !important;
+}
+.fridge-checkout-box,
+.fridge-checkout-box h4,
+.fridge-checkout-box h3,
+.fridge-checkout-box strong,
+.fridge-checkout-box span:not(.total-price):not(.qr-brand-dot):not(.qr-pay-chip),
+.fridge-checkout-box p {
+    color: #1A202C !important;
+}
+.fridge-checkout-box .total-price {
+    color: #FF6B00 !important;
+}
+.fridge-checkout-box .qr-brand-label,
+.fridge-checkout-box .qr-brand-label span {
+    color: #FF6B00 !important;
+}
+.fridge-checkout-box .qr-scan-label {
+    color: #718096 !important;
+}
+.fridge-checkout-box .empty-cart-msg {
+    color: #A0AEC0 !important;
+}
+.fridge-checkout-box .cart-item-row span:first-child {
+    color: #1A202C !important;
+}
+.qr-checkout-pane {
+    border-top-color: #EDF2F7 !important;
+}
+.qr-svg-frame {
+    background: #FFFFFF !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 107, 0, 0.1) !important;
+}
+/* Recolor SVG QR Code dynamically using attributes selectors */
+.qr-svg rect[fill="#0A1128"] {
+    fill: #FFFFFF !important;
+}
+.qr-svg rect[fill="#FFFFFF"] {
+    fill: #1A202C !important;
+}
+.qr-svg rect[fill="rgba(255,255,255,0.3)"] {
+    fill: #E2E8F0 !important;
+}
+.qr-pay-chip {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #4A5568 !important;
+}
+
+/* 6. ERP Interactive Tab Overrides */
+.erp-tab-content > div {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+.erp-visualizer-container {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+    border-radius: 24px !important;
+    color: #1A202C !important;
+    padding: 60px 40px !important;
+}
+.node-box {
+    background: #FFFFFF !important;
+    border: 1.5px solid #E2E8F0 !important;
+    color: #1A202C !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+.node-box:hover {
+    border-color: #E2E8F0 !important;
+    color: #1A202C !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+}
+.node-box#node-board {
+    background: #FF6B00 !important;
+    border-color: #FF6B00 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3) !important;
+}
+.node-box#node-board:hover {
+    box-shadow: 0 8px 30px rgba(255, 107, 0, 0.4) !important;
+    color: #FFFFFF !important;
+}
+.sensor-node {
+    background: #F8FAFC !important;
+    border-color: #E2E8F0 !important;
+    color: #4A5568 !important;
+    box-shadow: none !important;
+}
+.sensor-node:hover {
+    border-color: #E2E8F0 !important;
+    color: #4A5568 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+}
+.concept-difference {
+    border-top: 1px dashed #E2E8F0 !important;
+}
+.concept-difference p {
+    color: #4A5568 !important;
+}
+.math-opt-visual {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    color: #1A202C !important;
+}
+.math-opt-visual .canvas-title {
+    color: #718096 !important;
+}
+.math-opt-visual canvas {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+}
+.info-card h5 {
+    color: #1A202C !important;
+}
+.info-card p {
+    color: #4A5568 !important;
+}
+
+/* ERP Tab Buttons Redesign under light theme overrides */
+.erp-tab-btn {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #4A5568 !important;
+    border-radius: 50px !important;
+    padding: 10px 24px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+.erp-tab-btn:hover {
+    border-color: #FF6B00 !important;
+    color: #FF6B00 !important;
+}
+.erp-tab-btn.active {
+    background: #FF6B00 !important;
+    border-color: #FF6B00 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.15) !important;
 }
 
