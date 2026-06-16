@@ -38,43 +38,84 @@
                 </div>
             </a>
 
-            <!-- Desktop Navigation Tabs -->
+            <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <ul class="nav-list">
                     <li><a href="#/" class="nav-item active" data-page="home">Главная</a></li>
+
+                    <!-- Mega-menu: Решения -->
                     <li class="nav-dropdown-wrapper">
                         <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-products-trigger">Решения</a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="#/product" class="nav-item dropdown-item" data-page="product">Промышленный IoT</a></li>
-                        </ul>
+                        <div class="mega-menu" id="mega-menu-products">
+                            <div class="mega-menu-inner">
+                                <div class="mega-col mega-col-links">
+                                    <span class="mega-col-label">Продукты</span>
+                                    <ul>
+                                        <li><a href="#/product" class="mega-link" data-page="product">Промышленный IoT</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col mega-col-featured">
+                                    <span class="mega-col-label">Избранное</span>
+                                    <ul>
+                                        <li><a href="#/product" class="mega-featured-link" data-page="product">Amirig — IoT мониторинг</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
+
+                    <!-- Mega-menu: Разработки -->
                     <li class="nav-dropdown-wrapper">
                         <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-dev-trigger">Разработки</a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="#/case-finance" class="nav-item dropdown-item" data-page="case-finance">Финансовый ИИ</a></li>
-                            <li><a href="#/case-health" class="nav-item dropdown-item" data-page="case-health">Нейро-Коучинг</a></li>
-                            <li><a href="#/case-vending" class="nav-item dropdown-item" data-page="case-vending">Автономный Ритейл</a></li>
-                            <li><a href="#/case-crm" class="nav-item dropdown-item" data-page="case-crm">Интеллектуальная CRM</a></li>
-                        </ul>
+                        <div class="mega-menu" id="mega-menu-dev">
+                            <div class="mega-menu-inner">
+                                <div class="mega-col mega-col-links">
+                                    <span class="mega-col-label">Кейсы</span>
+                                    <ul>
+                                        <li><a href="#/case-finance" class="mega-link" data-page="case-finance">Финансовый ИИ</a></li>
+                                        <li><a href="#/case-health" class="mega-link" data-page="case-health">Нейро-Коучинг</a></li>
+                                        <li><a href="#/case-vending" class="mega-link" data-page="case-vending">Автономный Ритейл</a></li>
+                                        <li><a href="#/case-crm" class="mega-link" data-page="case-crm">Интеллектуальная CRM</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col mega-col-featured">
+                                    <span class="mega-col-label">Избранные кейсы</span>
+                                    <ul>
+                                        <li><a href="#/case-finance" class="mega-featured-link" data-page="case-finance">ИИ-Финансист</a></li>
+                                        <li><a href="#/case-health" class="mega-featured-link" data-page="case-health">Нейро-психолог</a></li>
+                                        <li><a href="#/case-vending" class="mega-featured-link" data-page="case-vending">Фридж-робот</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
+
+                    <!-- Mega-menu: Будущие проекты -->
                     <li class="nav-dropdown-wrapper">
                         <a href="javascript:void(0)" class="nav-item dropdown-toggle" id="dropdown-future-trigger">Будущие проекты</a>
-                        <ul class="nav-dropdown-menu">
-                            <li><a href="#/erp" class="nav-item dropdown-item" data-page="erp">Индустриальная ERP</a></li>
-                        </ul>
+                        <div class="mega-menu" id="mega-menu-future">
+                            <div class="mega-menu-inner">
+                                <div class="mega-col mega-col-links">
+                                    <span class="mega-col-label">В разработке</span>
+                                    <ul>
+                                        <li><a href="#/erp" class="mega-link" data-page="erp">Индустриальная ERP</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col mega-col-featured">
+                                    <span class="mega-col-label">Подробнее</span>
+                                    <ul>
+                                        <li><a href="#/erp" class="mega-featured-link" data-page="erp">QADR ERP — единая экосистема</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </nav>
 
-            <!-- Search and Action Buttons -->
+            <!-- Actions -->
             <div class="header-actions">
-                <div class="search-box">
-                    <svg class="search-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="9" cy="9" r="6" stroke="#0A1128" stroke-width="2"/>
-                        <path d="M14 14L18 18" stroke="#0A1128" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <input type="text" placeholder="Поиск..." aria-label="Поиск по сайту">
-                </div>
+                <a href="#/about" class="btn-header-outline" data-page="about">О компании</a>
                 <a href="#/contacts" class="cta-contact-btn" id="header-cta-btn">Контакты</a>
                 <button class="burger-btn" id="burger-btn" aria-label="Открыть мобильное меню">
                     <span></span>
@@ -83,6 +124,9 @@
                 </button>
             </div>
         </div>
+
+        <!-- Mega-menu backdrop -->
+        <div class="mega-menu-backdrop" id="mega-menu-backdrop"></div>
     </header>
 
     <!-- Mobile Navigation Drawer -->
@@ -250,7 +294,10 @@
                         <!-- Tiny WebGL rotating sensor -->
                     </div>
                     <div class="teaser-info">
-                        <span class="teaser-suptitle">[ СОБСТВЕННЫЙ IIOT-ПРОДУКТ И СОФТ AMIRIG / ЭКСКЛЮЗИВНЫЕ ПРАВА В РК ]</span>
+                        <div class="split-badge">
+                            <span class="badge-left">Amirig</span>
+                            <span class="badge-right">Собственный IIoT-продукт</span>
+                        </div>
                         <h2 class="teaser-title">Беспроводная платформа непрерывного мониторинга удаленных промышленных объектов.</h2>
                         <p class="teaser-desc">
                             Флагманское инженерное решение с полным циклом локализации производства на территории Республики Казахстан — от сборки взрывозащищенных корпусов до программной платформы риск-инжиниринга Amirig. QADR является официальным совладельцем технологии Amirig с эксклюзивными правами на владение, внедрение и дистрибуцию на всей территории Республики Казахстан. Платформа осуществляет автоматический сбор телеметрии и предиктивный риск-мониторинг буровых процессов в реальном времени, заменяя опасный ручной труд и предотвращая непроизводительное время.
@@ -335,7 +382,11 @@
                     <!-- WebGL Canvas for 3D Sensor -->
                 </div>
                 <div class="product-hero-overlay">
-                    <span class="prod-tag-orange">Собственная разработка (Соучредительство) / Эксклюзивные права в РК</span>
+                    <div class="hero-tags-container">
+                        <span class="hero-tag"><span class="status-dot"></span>Соучредительство</span>
+                        <span class="tag-divider">•</span>
+                        <span class="hero-tag hero-tag--orange">Эксклюзивные права в РК</span>
+                    </div>
                     <h1 class="prod-title">Беспроводная IIoT-платформа непрерывного телеметрического мониторинга критических объектов.</h1>
                     <p class="prod-desc">
                         Высокотехнологичное B2B-решение для нефтегазового, горнодобывающего и энергетического секторов. Физические беспроводные датчики осуществляют непрерывный замер давления, температуры и вибрации скважины, передавая телеметрию на базовые станции. На программном уровне над системой развертывается комплекс риск-инжиниринга и автоматизации Amirig.
@@ -661,38 +712,147 @@
             <div class="section-header" style="margin-top: 50px; margin-bottom: 20px;">
                 <h2 class="section-title">Сравнение методов мониторинга</h2>
             </div>
-            <div class="presentation-table-wrapper">
-                <table class="presentation-table">
-                    <thead>
-                        <tr>
-                            <th>Показатель эффективности</th>
-                            <th>Традиционный кабельный метод</th>
-                            <th>Беспроводной комплекс Amirig</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Скорость развертывания системы</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>До 2-3 рабочих смен (монтаж кабелей, коробов)</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Менее 2 часов</strong> (резьбовая установка датчиков)</td>
-                        </tr>
-                        <tr>
-                            <td>Надежность передачи сигналов</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Высокий риск обрывов кабеля механизмами</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>100% стабильность</strong> (промышленный LoRaWAN радиоканал)</td>
-                        </tr>
-                        <tr>
-                            <td>Предиктивный контроль безопасности</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Только визуальный мониторинг по шкалам</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Автоматический ИИ-скоринг рисков</strong> и СМС-оповещения</td>
-                        </tr>
-                        <tr>
-                            <td>Автономность датчиков</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Зависит от внешнего кабельного питания</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>До 5 лет работы</strong> от встроенной батареи</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="qadr-comparison-grid">
+                <!-- Row 1 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">01</span>
+                        <h4 class="metric-title">Развертывание</h4>
+                        <p class="metric-desc">Скорость установки и запуска системы контроля в работу.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Кабельный метод</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>До 2-3 рабочих смен</strong> (монтаж кабелей, коробов)</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>Комплекс Amirig</h5>
+                                    <span class="leader-pill">Решение QADR</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Менее 2 часов</strong> (резьбовая установка датчиков)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">02</span>
+                        <h4 class="metric-title">Передача сигналов</h4>
+                        <p class="metric-desc">Надежность связи и защищенность каналов передачи данных.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Кабельный метод</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Высокий риск обрывов</strong> кабеля механизмами</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>Комплекс Amirig</h5>
+                                    <span class="leader-pill">Решение QADR</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>100% стабильность</strong> (промышленный LoRaWAN радиоканал)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">03</span>
+                        <h4 class="metric-title">Безопасность</h4>
+                        <p class="metric-desc">Способность прогнозировать и предотвращать аварийные риски.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Кабельный метод</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Только визуальный контроль</strong> по шкалам приборов</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>Комплекс Amirig</h5>
+                                    <span class="leader-pill">Решение QADR</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Автоматический ИИ-скоринг рисков</strong> и СМС-оповещения</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">04</span>
+                        <h4 class="metric-title">Автономность</h4>
+                        <p class="metric-desc">Зависимость датчиков от внешних сетей электропитания.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Кабельный метод</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Зависит от постоянного внешнего</strong> кабельного питания</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>Комплекс Amirig</h5>
+                                    <span class="leader-pill">Решение QADR</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>До 5 лет работы</strong> от встроенной батареи</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global centered CTA for the comparison grid -->
+            <div class="comparison-cta-block">
+                <a href="#/contacts" class="btn-table-cta">Заказать расчет</a>
             </div>
             <!-- Block 3.5: OPI Trial Stages Timeline -->
             <div class="opi-timeline-block">
@@ -940,7 +1100,10 @@
         <section id="page-case-finance" class="page-section">
             <div class="case-header">
                 <div class="case-header-content">
-                    <span class="case-category">КЕЙС 1: ИИ-ФИНАНСИСТ И АВТОМАТИЗАЦИЯ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">Кейс 1</span>
+                        <span class="badge-right">ИИ-Финансист и автоматизация</span>
+                    </div>
                     <h1 class="case-title">Интеллектуальный ИИ-Финансист и система автоматического аудита документации</h1>
                     <p class="case-segment"><strong>Сегмент:</strong> Автоматизация финансового планирования крупного B2B-бизнеса и холдинговых структур.</p>
                     <p class="case-summary"><strong>Суть кейса:</strong> Разработка корпоративного ИИ-ассистента, способного вести первичный финансовый учет через голосовой ввод и автоматически проверять входящую первичную документацию на соответствие регламентам компании. Решение заменяет ручной труд бухгалтеров при вводе транзакций и минимизирует риски ошибок.</p>
@@ -979,33 +1142,113 @@
             <div class="section-header" style="margin-top: 50px; margin-bottom: 20px;">
                 <h2 class="section-title">Сравнение эффективности обработки счетов</h2>
             </div>
-            <div class="presentation-table-wrapper">
-                <table class="presentation-table">
-                    <thead>
-                        <tr>
-                            <th>Этап обработки платежей</th>
-                            <th>Без использования ИИ</th>
-                            <th>С внедрением ИИ-Финансиста</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Распознавание и классификация счетов</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Ручная сортировка, до 10 минут на документ</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Менее 3 секунд</strong> (автоматическое OCR и PDF-парсинг)</td>
-                        </tr>
-                        <tr>
-                            <td>Проверка лимитов и комплаенса</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Сверка с таблицами Excel вручную</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Моментальный автоматический аудит</strong> по коду закупки</td>
-                        </tr>
-                        <tr>
-                            <td>Формирование платежного поручения</td>
-                            <td class="table-status-bad"><span class="status-icon">✕</span>Ручное копирование БИН и сумм в банк-клиент</td>
-                            <td class="table-status-good"><span class="status-icon">✓</span><strong>Автогенерация реестра</strong> и выгрузка в ERP в 1 клик</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="qadr-comparison-grid">
+                <!-- Row 1 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">01</span>
+                        <h4 class="metric-title">Распознавание</h4>
+                        <p class="metric-desc">Сортировка, классификация и считывание первичных данных скан-копий.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Без использования ИИ</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Ручная сортировка</strong> (до 10 минут на документ)</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>ИИ-Финансист</h5>
+                                    <span class="leader-pill">ИИ-Технология</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Менее 3 секунд</strong> (автоматическое OCR и PDF-парсинг)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">02</span>
+                        <h4 class="metric-title">Аудит лимитов</h4>
+                        <p class="metric-desc">Сверка финансовых сумм с утвержденными лимитами CAPEX и комплаенс-контроль.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Без использования ИИ</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Сверка вручную</strong> с таблицами Excel</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>ИИ-Финансист</h5>
+                                    <span class="leader-pill">ИИ-Технология</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Моментальный авто-аудит</strong> по коду закупки</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="comparison-card-row">
+                    <div class="metric-info card-efficiency-indicator">
+                        <span class="metric-num">03</span>
+                        <h4 class="metric-title">Проведение оплат</h4>
+                        <p class="metric-desc">Создание платежных поручений, сверка реквизитов БИН и проведение транзакций.</p>
+                    </div>
+                    <div class="split-cards-container">
+                        <div class="compare-card bad-card">
+                            <span class="bad-glow"></span>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <h5>Без использования ИИ</h5>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Ручное копирование</strong> реквизитов БИН и сумм в банк-клиент</p>
+                            </div>
+                        </div>
+                        <div class="compare-card good-card">
+                            <div class="dot-matrix-glow"></div>
+                            <div class="card-header">
+                                <span class="card-status-dot"></span>
+                                <div class="card-header-inner">
+                                    <h5>ИИ-Финансист</h5>
+                                    <span class="leader-pill">ИИ-Технология</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Автогенерация реестра</strong> и выгрузка в ERP в 1 клик</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global centered CTA for the comparison grid -->
+            <div class="comparison-cta-block">
+                <a href="#/contacts" class="btn-table-cta">Заказать демо</a>
             </div>
             <!-- Block 3: Business Results -->
             <div class="case-results-block">
@@ -1085,7 +1328,10 @@
         <section id="page-case-health" class="page-section">
             <div class="case-header dark-navy">
                 <div class="case-header-content">
-                    <span class="case-category">КЕЙС 2: МЕДИА-ПЛАТФОРМА И ИИ-КОУЧИНГ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">Кейс 2</span>
+                        <span class="badge-right">Медиа-платформа и ИИ-Коучинг</span>
+                    </div>
                     <h1 class="case-title">Высоконагруженная стриминговая экосистема ментального здоровья с персональным ИИ-терапевтом</h1>
                     <p class="case-segment"><strong>Сегмент:</strong> Biohacking / Корпоративный B2B и массовый B2C сектор ментального здоровья и продуктивности сотрудников.</p>
                     <p class="case-summary"><strong>Суть кейса:</strong> Создание масштабного мобильного и веб-сервиса, сочетающего в себе бесперебойный стриминг терапевтического аудиоконтента и интерактивное ИИ-сопровождение пользователя для улучшения качества его жизни. Мы разработали архитектуру с минимальной задержкой воспроизведения и внедрили ИИ-консультанта на базе психотерапевтических практик.</p>
@@ -1194,7 +1440,10 @@
         <section id="page-case-vending" class="page-section">
             <div class="case-header">
                 <div class="case-header-content">
-                    <span class="case-category">КЕЙС 3: УМНЫЙ РИТЕЙЛ И VENDING-КОНТРОЛЬ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">Кейс 3</span>
+                        <span class="badge-right">Умный ритейл и Vending</span>
+                    </div>
                     <h1 class="case-title">Автономный комплекс умного ритейла и IoT-микромаркетов самообслуживания</h1>
                     <p class="case-segment"><strong>Сегмент:</strong> Автоматизация розничной торговли / Смарт-вендинг без участия персонала.</p>
                     <p class="case-summary"><strong>Суть кейса:</strong> Разработка сквозной экосистемы управления физическими точками продаж: от создания кастомной управляющей платы внутри торгового автомата до мобильного интерфейса покупки в один клик. Мы объединили весовые датчики HX711 с контроллерами ESP32, облачной базой данных и бесконтактными платежами.</p>
@@ -1299,7 +1548,10 @@
         <section id="page-case-crm" class="page-section">
             <div class="case-header">
                 <div class="case-header-content">
-                    <span class="case-category">КЕЙС 4: CRM И АКАДЕМИЧЕСКАЯ МОБИЛЬНОСТЬ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">Кейс 4</span>
+                        <span class="badge-right">CRM и Академическая мобильность</span>
+                    </div>
                     <h1 class="case-title">Омниканальная CRM-система управления процессами международного образования</h1>
                     <p class="case-segment"><strong>Сегмент:</strong> Образовательный консалтинг / Глобальная академическая интеграция и мобильность.</p>
                     <p class="case-summary"><strong>Суть кейса:</strong> Проектирование и создание узкоспециализированной CRM-платформы, полностью координирующей процесс отправки, подготовки документов и зачисления студентов в ведущие мировые университеты. Система автоматизирует воронки, агрегирует чаты и отслеживает критические дедлайны приемных комиссий.</p>
@@ -1408,7 +1660,10 @@
         <section id="page-erp" class="page-section">
             <div class="case-header monumental-header">
                 <div class="case-header-content">
-                    <span class="case-category">ПЕРСПЕКТИВНЫЙ ENTERPRISE-ПРОЕКТ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">Enterprise</span>
+                        <span class="badge-right">Перспективный ERP-Проект</span>
+                    </div>
                     <h1 class="case-title">Монолитная локальная ERP-платформа сквозного управления корпоративного уровня для АО</h1>
                     <p class="case-segment"><strong>Цель проекта:</strong> Заявить о способности создавать независимые решения национального масштаба, привлечь внимание топ-менеджмента крупнейших промышленных конгломератов и акционерных обществ Республики Казахстан.</p>
                 </div>
@@ -1559,7 +1814,10 @@
         <section id="page-contacts" class="page-section">
             <div class="case-header">
                 <div class="case-header-content">
-                    <span class="case-category">СВЯЗАТЬСЯ С НАМИ</span>
+                    <div class="split-badge">
+                        <span class="badge-left">QADR</span>
+                        <span class="badge-right">Свяжитесь с нами</span>
+                    </div>
                     <h1 class="case-title">Обсудить ваш технологический проект</h1>
                     <p class="case-segment">Оставьте заявку, и наша инженерная группа свяжется с вами для технической консультации.</p>
                 </div>

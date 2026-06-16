@@ -514,22 +514,51 @@
     color: var(--text-primary) !important;
 }
 
-.prod-tag-orange {
+.hero-tags-container {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 24px !important;
+    font-family: var(--font-sans) !important;
+    letter-spacing: 0.03em !important;
+}
+
+.hero-tag {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
     display: inline-flex !important;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-title);
-    font-size: 0.72rem !important;
-    font-weight: 800 !important;
-    color: var(--accent-orange) !important;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: rgba(255, 94, 0, 0.05) !important;
-    border: 1.5px solid rgba(255, 94, 0, 0.15) !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
-    margin-bottom: 20px !important;
-    box-sizing: border-box;
+    align-items: center !important;
+}
+
+.hero-tag--orange {
+    color: var(--accent-orange, #FF5E00) !important;
+}
+
+.tag-divider {
+    color: var(--accent-orange, #FF5E00) !important;
+    opacity: 0.5 !important;
+    font-size: 14px !important;
+}
+
+.status-dot {
+    display: inline-block !important;
+    width: 6px !important;
+    height: 6px !important;
+    background-color: var(--accent-orange, #FF5E00) !important;
+    border-radius: 50% !important;
+    margin-right: 8px !important;
+}
+
+@media (max-width: 480px) {
+    .hero-tags-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+    .hero-tags-container .tag-divider {
+        display: none !important;
+    }
 }
 
 .prod-title {
@@ -558,35 +587,29 @@
 }
 
 .btn-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-light);
-    transition: var(--transition-fast);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    background: #0F1322 !important; /* Premium dark navy */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 12px 20px !important;
+    border-radius: 6px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    color: #F1F5F9 !important;
+    transition: all 0.25s ease !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
 }
 
 .btn-download:hover {
-    background: var(--text-light);
-    color: var(--bg-dark-accent);
-    transform: translateY(-2px);
-}
-
-.product-hero .btn-download {
-    background: var(--bg-dark-accent) !important;
-    border: 1.5px solid var(--bg-dark-accent) !important;
-    color: #FFFFFF !important;
-}
-
-.product-hero .btn-download:hover {
-    background: rgba(30, 36, 53, 0.9) !important;
-    color: #FFFFFF !important;
-    transform: translateY(-2px);
+    background: rgba(255, 94, 0, 0.05) !important;
+    border: 1px solid var(--accent-orange, #FF5E00) !important;
+    color: var(--accent-orange, #FF5E00) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 20px rgba(255, 94, 0, 0.18) !important;
 }
 
 /* Exploded Hardware Block & Interactive Configurator */
@@ -1051,23 +1074,6 @@
     opacity: 0.65;
 }
 
-.case-category {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-title);
-    font-size: 0.72rem !important;
-    font-weight: 800 !important;
-    color: var(--accent-orange) !important;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: rgba(255, 94, 0, 0.05) !important;
-    border: 1.5px solid rgba(255, 94, 0, 0.15) !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
-    margin-bottom: 20px !important;
-    box-sizing: border-box;
-}
 
 .case-header .case-title {
     font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -3075,7 +3081,7 @@
 @media (max-width: 768px) {
     .hero-block {
         flex-direction: column-reverse;
-        padding-top: 120px;
+        padding-top: 40px !important;
     }
     .hero-webgl-container {
         height: 350px;
@@ -3089,14 +3095,213 @@
     .product-hero {
         height: auto !important;
         min-height: auto !important;
-        padding-top: 120px !important;
-        padding-bottom: 60px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
         display: block !important;
     }
     .product-hero-overlay {
         margin-left: 0;
         padding: 0 24px;
         text-align: center;
+    }
+    .case-header {
+        min-height: auto !important;
+        padding: 40px 0 !important;
+    }
+    
+    /* Mobile Modal Overrides */
+    .demo-modal {
+        padding: 10px 8px !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+    .demo-modal-content {
+        padding: 32px 16px 20px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important; /* Force flex container child to shrink to viewport width */
+        border-radius: 16px !important;
+        max-height: 94vh !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+    /* Robust inner content centering & sizing to prevent right shift / horizontal overflow */
+    .demo-modal-content * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    /* Stack grid containers vertically on mobile for seamless viewport compatibility */
+    .demo-modal-content .player-chat-grid,
+    .demo-modal-content .scada-dashboard-layout,
+    .demo-modal-content .demo-split-grid,
+    .demo-modal-content .fridge-simulator-grid,
+    .demo-modal-content .funnel-container-layout,
+    .demo-modal-content .erp-flow-diagram,
+    .demo-modal-content .ocr-workspace-split {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .demo-modal-content .audio-player-simulator,
+    .demo-modal-content .ai-psychologist-chat,
+    .demo-modal-content .demo-card,
+    .demo-modal-content .fridge-graphic-box,
+    .demo-modal-content .fridge-hardware-consoles,
+    .demo-modal-content .funnel-ui-view,
+    .demo-modal-content .crm-ui-card,
+    .demo-modal-content .alert-content-box,
+    .demo-modal-content .erp-visualizer-container,
+    .demo-modal-content .ocr-data-extraction-table,
+    .demo-modal-content .doc-preview-pane {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+    /* Specific inner elements optimization */
+    .demo-modal-content .player-telemetry-box {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    .demo-modal-content .telemetry-item {
+        grid-column: span 1 !important;
+    }
+    .demo-modal-content .btn-nature {
+        min-width: 0 !important;
+        flex: 1 1 0% !important;
+        font-size: 0.7rem !important;
+        padding: 8px 4px !important;
+    }
+    .demo-modal-content .doc-selector-grid {
+        flex-direction: column !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        gap: 8px !important;
+    }
+    .demo-modal-content .btn-select-doc {
+        width: 100% !important;
+        flex: none !important;
+        text-align: center !important;
+        font-size: 0.72rem !important;
+        padding: 10px 8px !important;
+    }
+    .demo-modal-content .erp-modal-tabs {
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+    }
+    .demo-modal-content .erp-tab-btn {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 0.8rem !important;
+        padding: 10px 12px !important;
+    }
+    .demo-modal-content .mood-chips {
+        justify-content: center !important;
+    }
+    .demo-modal-content .chat-input-container {
+        padding: 12px 8px !important;
+        gap: 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .demo-modal-content .chat-input-field {
+        min-width: 0 !important;
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
+    }
+    .demo-modal-content .btn-send-message {
+        padding: 8px 14px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0 !important;
+    }
+    .demo-modal-content .scada-telemetry-panel {
+        grid-template-columns: 1fr 1fr !important;
+        width: 100% !important;
+    }
+    .demo-modal-content .packing-telemetry {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+    @media (max-width: 480px) {
+        .demo-modal-content .scada-telemetry-panel {
+            grid-template-columns: 1fr !important;
+        }
+    }
+    .demo-modal-close {
+        position: fixed !important; /* Pin close button to viewport top-right so it floats above content and doesn't get clipped */
+        top: 16px !important;
+        right: 16px !important;
+        width: 36px !important;
+        height: 36px !important;
+        background: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        color: #FFFFFF !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        border-radius: 50% !important;
+        z-index: 100000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.25rem !important;
+        cursor: pointer !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    }
+    .demo-modal-content .section-header {
+        padding-right: 32px !important;
+        margin-bottom: 20px !important;
+    }
+    .demo-modal-content h2.section-title {
+        font-size: 1.25rem !important;
+    }
+    .demo-modal-content p.section-subtitle {
+        font-size: 0.85rem !important;
+    }
+    .audio-player-simulator {
+        padding: 16px 12px !important; /* Reduce padding to avoid squeezing flex elements */
+    }
+    .nature-tabs-container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        border-radius: 12px !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 6px !important;
+    }
+    .btn-nature {
+        flex: 1 1 auto !important;
+        min-width: 80px !important;
+        border-radius: 8px !important;
+        padding: 8px 10px !important;
+        font-size: 0.72rem !important;
+        text-align: center !important;
+    }
+    .scada-telemetry-panel {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+    .scada-telemetry-panel .telemetry-widget:first-child {
+        grid-column: span 2 !important;
+    }
+    .alert-content-box {
+        padding: 20px 16px !important;
     }
     
     /* Technical specifications table mobile stack layout */
@@ -4828,6 +5033,7 @@
     position: relative;
     padding: 40px;
     transform: scale(0.95);
+    will-change: transform;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     scroll-behavior: smooth;
 }
@@ -5115,253 +5321,371 @@
 }
 
 /* ============================================================
-   INFOGRAPHIC COMPARISON TABLE — Premium visual style
+   QADR INTUITIVE COMPARISON GRID (Awwwards Design)
    ============================================================ */
-.presentation-table-wrapper {
-    max-width: var(--container-width, 1280px);
+.qadr-comparison-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1060px !important; /* Narrower width for compact elegant look */
     width: calc(100% - 48px);
-    margin: 24px auto 32px auto;
-    overflow-x: auto;
-    border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(10, 17, 40, 0.07);
+    margin: 40px auto 30px auto;
     box-sizing: border-box;
 }
 
-.presentation-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: #FFFFFF;
-    border: 1px solid rgba(10, 17, 40, 0.08);
-    border-radius: 16px;
+.comparison-card-row {
+    display: grid;
+    grid-template-columns: 240px 1fr; /* Narrower left sidebar */
+    gap: 24px; /* Slightly tighter gap */
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px 28px; /* Tighter padding for a more focused layout */
+    box-sizing: border-box;
+    backdrop-filter: blur(16px) saturate(120%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
     overflow: hidden;
 }
 
-.presentation-table th {
-    padding: 18px 24px;
-    font-family: var(--font-title);
-    font-weight: 800;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 2px solid rgba(10, 17, 40, 0.07);
-    border-right: 1px solid rgba(10, 17, 40, 0.05);
-    vertical-align: middle;
-}
 
-.presentation-table th:first-child {
-    background: #F3F5F9;
-    color: var(--text-secondary, #6B7A9A);
-    text-align: left;
-    width: 32%;
-}
 
-.presentation-table th:nth-child(2) {
-    background: #FFF5F5 !important;
-    color: #E53E3E !important;
-    text-align: center;
-    border-bottom: 2px solid #FEE2E2 !important;
-    border-right: 1px solid #FEE2E2 !important;
-}
-
-.presentation-table th:last-child {
-    background: #F0FDF4 !important;
-    color: #38A169 !important;
-    text-align: center;
-    border-bottom: 2px solid #C6F6D5 !important;
-    border-right: none;
-}
-
-.presentation-table tbody tr {
-    transition: background 0.2s ease;
-}
-
-.presentation-table tbody tr:hover .table-status-bad {
-    background: #FFF0F0 !important;
-}
-
-.presentation-table tbody tr:hover .table-status-good {
-    background: #E8FDF0 !important;
-}
-
-.presentation-table td {
-    padding: 20px 24px;
-    border-bottom: 1px solid rgba(10, 17, 40, 0.05);
-    border-right: 1px solid rgba(10, 17, 40, 0.04);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    vertical-align: top;
-    text-align: left;
-}
-
-.presentation-table td:first-child {
-    color: var(--text-primary, #0A1128);
-    font-weight: 700;
-    font-size: 0.9rem;
-    background: #F8F9FA !important;
-    border-right: 2px solid rgba(10, 17, 40, 0.06);
-    vertical-align: middle;
-}
-
-.presentation-table td:last-child {
-    border-right: none;
-}
-
-.presentation-table tr:last-child td {
-    border-bottom: none;
-}
-
-/* Bad column — soft rose tint */
-.table-status-bad {
-    background: #FFF9F9 !important;
-    color: #4A5568 !important; /* Graphite readability */
-    font-size: 0.88rem;
-    line-height: 1.6;
-    transition: background 0.2s ease;
-}
-
-.table-status-bad .status-icon {
-    display: inline-flex;
-    align-items: center;
+/* Left Sidebar Info */
+.metric-info {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: #FEE2E2 !important;
-    color: #EF4444 !important;
-    font-weight: 700;
-    font-size: 0.65rem;
-    border-radius: 50%;
-    margin-right: 10px;
-    flex-shrink: 0;
-    vertical-align: middle;
+    gap: 8px;
+    position: relative;
 }
 
-/* Good column — soft sage green tint with orange accent for key numbers */
-.table-status-good {
-    background: #F4FDF7 !important;
-    color: #1A202C !important;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    transition: background 0.2s ease;
+/* Класс контейнера для левой части карточки (Показатели) */
+.card-efficiency-indicator {
+  position: relative;
+  overflow: hidden; /* Чтобы точки не вылезали за скругления карточки */
 }
 
-.table-status-good strong {
-    font-size: 1.0rem;
+/* Декоративная оранжевая сетка на фоне */
+.card-efficiency-indicator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Уводим под текст */
+  
+  /* Рисуем микро-точки оранжевого цвета */
+  background-image: radial-gradient(#FF7300 1px, transparent 1px);
+  background-size: 18px 18px; /* Шаг сетки */
+  
+  /* Делаем её едва уловимой, чтобы не мешать чтению */
+  opacity: 0.06; 
+  pointer-events: none; /* Чтобы сетка не перехватывала клики */
+}
+
+/* Гарантируем, что контент будет выше сетки */
+.card-efficiency-indicator > * {
+  position: relative;
+  z-index: 1;
+}
+
+.metric-num {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
     font-weight: 800;
     color: var(--accent-orange, #FF5E00);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.15em;
 }
 
-.table-status-good .status-icon {
+.metric-title {
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.3;
+}
+
+.metric-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7) !important; /* White with 0.7 opacity for perfect readability and contrast */
+    line-height: 1.5;
+}
+
+/* Compare Cards Container */
+.split-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch !important; /* Forces cards to stretch to the same height */
+}
+
+.compare-card {
+    position: relative;
+    border-radius: 14px;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100% !important; /* Fills container height */
+}
+
+/* Bad Card - Traditional / Risk Method */
+.bad-card {
+    background: rgba(18, 12, 14, 0.95) !important; /* Deeper, darker background close to page tone */
+    border: 1px solid rgba(239, 68, 68, 0.3) !important; /* More distinct colored borders */
+    box-shadow: 
+        0 0 25px rgba(239, 68, 68, 0.15), 
+        inset 0 0 15px rgba(239, 68, 68, 0.08) !important;
+}
+
+.bad-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+}
+
+.bad-card .card-status-dot {
+    display: none !important;
+}
+
+.compare-card.bad-card .bad-glow {
+    display: none !important;
+}
+
+/* Good Card - QADR / Winner Method */
+.good-card {
+    background: rgba(12, 18, 14, 0.95) !important; /* Deeper, darker background close to page tone */
+    border: 1px solid rgba(34, 197, 94, 0.35) !important; /* More distinct colored borders */
+    box-shadow: 
+        0 0 30px rgba(34, 197, 94, 0.22), 
+        inset 0 0 20px rgba(34, 197, 94, 0.08) !important;
+}
+
+.good-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.12) 0%, transparent 60%) !important;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+}
+
+.good-card .card-status-dot {
+    display: none !important;
+}
+
+/* Dot matrix removed internally for a cleaner, high-contrast, text-first Awwwards appearance */
+.good-card .dot-matrix-glow {
+    display: none !important;
+}
+
+.comparison-card-row:hover .good-card .dot-matrix-glow {
+    display: none !important;
+}
+
+/* Card Header */
+.compare-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.card-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.compare-card h5 {
+    font-family: var(--font-title);
+    font-size: 0.75rem !important; /* De-emphasized, smaller header label */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6) !important; /* Brightened to 0.6 opacity white for better contrast */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+    display: flex;
+    align-items: flex-start !important; /* Aligns content to the top of the text line */
+}
+
+/* Unicode status icons prepended before header text */
+.bad-card h5::before {
+    content: "✕";
+    display: inline-block;
+    color: #EF4444;
+    font-weight: 900;
+    margin-right: 8px;
+    font-size: 0.85rem;
+    line-height: 1 !important;
+    align-self: flex-start;
+    margin-top: 1px; /* Visual baseline alignment nudge */
+}
+
+.good-card h5::before {
+    content: "✓";
+    display: inline-block;
+    color: #22C55E;
+    font-weight: 900;
+    margin-right: 8px;
+    font-size: 0.85rem;
+    line-height: 1 !important;
+    align-self: flex-start;
+    margin-top: 1px; /* Visual baseline alignment nudge */
+}
+
+/* Card Body Content */
+.compare-card .card-body {
+    position: relative;
+    z-index: 2;
+    font-size: 1.0rem;
+    line-height: 1.6;
+    color: #FFFFFF !important; /* Pure white text for maximal contrast and readability */
+}
+
+.compare-card .card-body p {
+    color: #FFFFFF !important;
+}
+
+.good-card .card-body strong {
+    color: #4ADE80 !important; /* Salat-green color for active positive figures */
+}
+
+.bad-card .card-body strong {
+    color: #F87171 !important; /* Soft red color for active traditional figures */
+}
+
+/* Leader Badge (Pill) */
+.good-card .leader-pill {
+    position: static !important; /* Inline flow (Variant A) */
+    z-index: 3;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    background: #DCFCE7 !important;
-    color: #22C55E !important;
-    font-weight: 700;
-    font-size: 0.65rem;
+    gap: 6px;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    background: rgba(255, 94, 0, 0.25) !important; /* Semi-transparent orange background inside card header */
+    border: 1px solid var(--accent-orange, #FF5E00);
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: none !important;
+}
+
+.good-card .leader-pill::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: #FFFFFF; /* High-contrast white dot indicator */
     border-radius: 50%;
-    margin-right: 10px;
-    flex-shrink: 0;
-    vertical-align: middle;
+    box-shadow: none;
+}
+
+/* Global Centered CTA */
+.comparison-cta-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 40px;
+}
+
+.btn-table-cta {
+    position: relative !important;
+    overflow: hidden !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+    background: linear-gradient(135deg, var(--accent-orange, #FF5E00) 0%, #FF3D00 100%) !important;
+    color: #FFFFFF !important;
+    padding: 14px 28px !important;
+    border-radius: 8px !important;
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    box-shadow: 0 4px 20px rgba(255, 94, 0, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    text-decoration: none !important;
+}
+
+.btn-table-cta:hover {
+    background: linear-gradient(135deg, #FF6B00 0%, #FF5E00 100%) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 8px 30px rgba(255, 94, 0, 0.45) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* ============================================================
-   RESPONSIVE MOBILE STACKED LAYOUT FOR INFOGRAPHIC TABLES
+   RESPONSIVE LAYOUT Adaptations
    ============================================================ */
+@media (max-width: 992px) {
+    .comparison-card-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px;
+    }
+    .metric-info {
+        align-items: flex-start;
+    }
+    .split-cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
 @media (max-width: 768px) {
-    .presentation-table-wrapper {
-        box-shadow: none !important;
-        background: transparent !important;
-        overflow-x: visible !important;
+    .qadr-comparison-grid {
         width: 100% !important;
-        margin: 16px 0 !important;
         padding: 0 16px !important;
+        margin: 30px auto 20px auto !important;
     }
-    .presentation-table {
-        display: block !important;
-        border: none !important;
-        background: transparent !important;
+    .comparison-card-row {
+        padding: 20px 16px !important;
+        gap: 16px !important;
     }
-    .presentation-table thead {
+    .compare-card {
+        padding: 16px !important;
+    }
+    .btn-table-cta {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    .good-card .dot-matrix-glow {
         display: none !important;
     }
-    .presentation-table tbody {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
-        width: 100% !important;
+}
+
+@media (max-width: 480px) {
+    .card-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
-    .presentation-table tbody tr {
-        display: block !important;
-        background: #FFFFFF !important;
-        border: 1px solid #E2E8F0 !important;
-        border-radius: 16px !important;
-        padding: 20px !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
-        box-sizing: border-box !important;
-        width: 100% !important;
-    }
-    .presentation-table td {
-        display: block !important;
-        width: 100% !important;
-        padding: 0 !important;
-        border: none !important;
-        background: transparent !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* First cell: Indicator Title */
-    .presentation-table td:first-child {
-        font-size: 1.0rem !important;
-        font-weight: 800 !important;
-        color: #1A202C !important;
-        margin-bottom: 14px !important;
-        padding-bottom: 8px !important;
-        border-bottom: 1px solid #F0F4F8 !important;
-        background: transparent !important;
-    }
-    
-    /* Bad Column cell */
-    .presentation-table td.table-status-bad {
-        margin-bottom: 10px !important;
-        padding: 12px 14px !important;
-        background: #FFF9F9 !important;
-        border: 1px solid #FEE2E2 !important;
-        border-radius: 12px !important;
-        font-size: 0.88rem !important;
-    }
-    .presentation-table td.table-status-bad::before {
-        content: "Традиционный метод: " !important;
-        display: block !important;
-        font-size: 0.72rem !important;
-        font-weight: 800 !important;
-        text-transform: uppercase !important;
-        color: #E53E3E !important;
-        margin-bottom: 6px !important;
-        letter-spacing: 0.04em !important;
-    }
-    
-    /* Good Column cell */
-    .presentation-table td.table-status-good {
-        padding: 14px 16px !important;
-        background: #F0FDF4 !important;
-        border: 1px solid #C6F6D5 !important;
-        border-radius: 12px !important;
-        font-size: 0.9rem !important;
-        box-shadow: 0 2px 4px rgba(34, 197, 94, 0.03) !important;
-    }
-    .presentation-table td.table-status-good::before {
-        content: "Решение QADR: " !important;
-        display: block !important;
-        font-size: 0.72rem !important;
-        font-weight: 800 !important;
-        text-transform: uppercase !important;
-        color: #38A169 !important;
-        margin-bottom: 6px !important;
-        letter-spacing: 0.04em !important;
+    .good-card .leader-pill {
+        position: static;
+        margin-bottom: 8px;
+        order: -1;
     }
 }
 
@@ -6110,7 +6434,11 @@ table,
     height: 10px !important;
 }
 
-.demo-modal-content::-webkit-scrollbar-track,
+.demo-modal-content::-webkit-scrollbar-track {
+    background: transparent !important;
+    margin: 16px 0 !important; /* Inset scrollbar track to stay within rounded borders */
+}
+
 .chat-area::-webkit-scrollbar-track,
 .console-log::-webkit-scrollbar-track,
 .scada-logs::-webkit-scrollbar-track {
@@ -6454,3 +6782,24 @@ table,
     box-shadow: 0 4px 12px rgba(255, 107, 0, 0.15) !important;
 }
 
+/* ERP Large Orange Badge redesign under light theme overrides */
+.demo-modal-content .large-orange-badge {
+    background: rgba(255, 107, 0, 0.08) !important;
+    border: 1px solid rgba(255, 107, 0, 0.2) !important;
+    color: #7C2D12 !important; /* Deep dark amber/rust color for high contrast readability */
+}
+.demo-modal-content .large-orange-badge .badge-text {
+    color: #7C2D12 !important; /* Deep dark amber/rust color for high contrast readability */
+}
+
+
+/* GPU performance acceleration for scroll animated elements */
+.competency-column, .teaser-card, .matrix-card, .step-card, .software-card, 
+.rollout-step, .pricing-card, .comparison-card-row, .contact-card, 
+.demonstration-banner, .concept-difference, .audio-player-simulator, 
+.ai-psychologist-chat, .fridge-graphic-box, .fridge-checkout-box, 
+.funnel-ui-view, .erp-visualizer-container, .spec-table, .section-header {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}

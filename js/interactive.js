@@ -682,6 +682,7 @@
     let vizAngle = 0;
     let currentBufferMB = 5.2;
     let currentBufferSec = 19;
+    let audioEl = null;
     
     // Timeline variables
     let lastProgressTime = null;
@@ -734,88 +735,214 @@
         vizCanvas.width = vizCanvas.parentElement.clientWidth;
         vizCanvas.height = vizCanvas.parentElement.clientHeight;
 
-        const playBtn = document.getElementById('btn-player-play');
-        const natureBtns = document.querySelectorAll('.btn-nature');
-        const trackTitle = document.getElementById('current-track-title');
+        const playBtn       = document.getElementById('btn-player-play');
+        const natureBtns    = document.querySelectorAll('.btn-nature');
+        const trackTitle    = document.getElementById('current-track-title');
         const trackSubtitle = document.getElementById('current-track-subtitle');
-        const playerCard = document.getElementById('audio-player-card');
+        const playerCard    = document.getElementById('audio-player-card');
+        const fillEl        = document.getElementById('player-timeline-fill');
+        const currentEl     = document.getElementById('player-time-current');
+        const durationEl    = document.getElementById('player-time-duration');
+        const bufferValEl   = document.getElementById('player-buffer');
+        const timelineSlider= document.getElementById('player-timeline-slider');
 
         ripples = [];
 
-        if (playBtn) {
-            playBtn.onclick = () => {
-                isPlaying = !isPlaying;
-                playBtn.classList.toggle('playing');
-                if (isPlaying) {
-                    playBtn.innerHTML = `<svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
-                    currentBufferMB = 5.2;
-                    currentBufferSec = 19;
-                    lastProgressTime = performance.now();
-                    
+        // ─── Track definitions ──────────────────────────────────────────────
+        const tracks = {
+            forest: {
+                src:      'audio/forest.mp3',
+                title:    'Звуки леса и ручья',
+                subtitle: 'Терапевтическая сессия медитации • 96kHz Lossless',
+                theme:    'theme-forest',
+                color:    'rgba(34, 197, 94, 0.3)',
+                wave:     '#22C55E'
+            },
+            rain: {
+                src:      'audio/rain.mp3',
+                title:    'Осенний дождь (Almaty Ambient)',
+                subtitle: 'Нейро-атмосфера дождя • 96kHz FLAC',
+                theme:    'theme-rain',
+                color:    'rgba(59, 130, 246, 0.3)',
+                wave:     '#3B82F6'
+            },
+            waves: {
+                src:      'audio/waves.mp3',
+                title:    'Тихий океан (Alpha-Relax Session)',
+                subtitle: 'Гипнотическая сессия прибоя • 96kHz Lossless',
+                theme:    'theme-waves',
+                color:    'rgba(139, 92, 246, 0.3)',
+                wave:     '#8B5CF6'
+            }
+        };
+
+        // ─── HTML5 Audio instance ────────────────────────────────────────────
+        let currentSound = 'forest';
+        if (audioEl) {
+            audioEl.pause();
+            audioEl.src = '';
+        }
+        audioEl = new Audio();
+        audioEl.loop = true;
+        audioEl.volume = 0.7;
+        audioEl.preload = 'metadata';
+
+        function loadTrack(sound, autoplay) {
+            const t = tracks[sound];
+            if (!t) return;
+            currentSound = sound;
+
+            // UI updates
+            if (trackTitle)    trackTitle.textContent    = t.title;
+            if (trackSubtitle) trackSubtitle.textContent = t.subtitle;
+            if (playerCard) {
+                playerCard.classList.remove('theme-forest', 'theme-rain', 'theme-waves');
+                playerCard.classList.add(t.theme);
+            }
+            activeThemeColor     = t.color;
+            activeThemeWaveColor = t.wave;
+
+            // Load audio
+            const wasPlaying = isPlaying;
+            audioEl.pause();
+            audioEl.src = t.src;
+            audioEl.load();
+
+            // Reset UI
+            if (fillEl)    fillEl.style.width = '0%';
+            if (currentEl) currentEl.textContent = '00:00';
+            if (bufferValEl) bufferValEl.textContent = 'Загрузка...';
+
+            if (autoplay || wasPlaying) {
+                audioEl.play().then(() => {
+                    isPlaying = true;
+                    setPlayIcon(true);
                     if (vizFrameId) cancelAnimationFrame(vizFrameId);
                     animateVisualizer();
-                } else {
-                    playBtn.innerHTML = `<svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+                }).catch(() => showAudioMissingBanner(t.src));
+            }
+        }
+
+        // ─── Show banner if file is missing ─────────────────────────────────
+        function showAudioMissingBanner(src) {
+            let banner = document.getElementById('audio-missing-banner');
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'audio-missing-banner';
+                banner.style.cssText = `
+                    position:absolute; bottom:12px; left:50%; transform:translateX(-50%);
+                    background:rgba(255,94,0,0.92); color:#fff; font-size:0.75rem;
+                    padding:8px 16px; border-radius:8px; z-index:10;
+                    text-align:center; pointer-events:none; white-space:nowrap;
+                `;
+                if (playerCard) { playerCard.style.position = 'relative'; playerCard.appendChild(banner); }
+            }
+            const filename = src.split('/').pop();
+            banner.textContent = `⚠ Файл не найден: ${filename} — положи его в папку audio/`;
+            banner.style.display = 'block';
+            setTimeout(() => { banner.style.display = 'none'; }, 5000);
+        }
+
+        // ─── Play / Pause icon helper ────────────────────────────────────────
+        function setPlayIcon(playing) {
+            if (!playBtn) return;
+            playBtn.innerHTML = playing
+                ? `<svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`
+                : `<svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+        }
+
+        // ─── Format seconds → mm:ss ──────────────────────────────────────────
+        function fmt(sec) {
+            if (!isFinite(sec)) return '∞';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        }
+
+        // ─── Audio events → update UI ────────────────────────────────────────
+        audioEl.addEventListener('timeupdate', () => {
+            const dur = audioEl.duration || 0;
+            const cur = audioEl.currentTime || 0;
+            elapsedTimeSec = cur;
+            if (fillEl)    fillEl.style.width = dur ? ((cur / dur) * 100) + '%' : '0%';
+            if (currentEl) currentEl.textContent = fmt(cur);
+            if (durationEl) durationEl.textContent = fmt(dur);
+
+            // Simulated buffer telemetry
+            if (bufferValEl && isPlaying) {
+                const mb = (cur * 0.032).toFixed(1); // ~32KB/s for mp3 ~256kbps
+                bufferValEl.textContent = `${mb} MB / ${Math.round(cur)}s`;
+            }
+        });
+
+        audioEl.addEventListener('loadedmetadata', () => {
+            if (durationEl) durationEl.textContent = fmt(audioEl.duration);
+        });
+
+        audioEl.addEventListener('ended', () => {
+            isPlaying = false;
+            setPlayIcon(false);
+            if (vizFrameId) cancelAnimationFrame(vizFrameId);
+            if (vizCtx) vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
+        });
+
+        audioEl.addEventListener('error', () => {
+            showAudioMissingBanner(audioEl.src);
+            isPlaying = false;
+            setPlayIcon(false);
+        });
+
+        // ─── Play / Pause button ─────────────────────────────────────────────
+        if (playBtn) {
+            playBtn.onclick = () => {
+                if (isPlaying) {
+                    audioEl.pause();
+                    isPlaying = false;
+                    setPlayIcon(false);
                     if (vizFrameId) cancelAnimationFrame(vizFrameId);
                     if (vizCtx) vizCtx.clearRect(0, 0, vizCanvas.width, vizCanvas.height);
-                    
-                    const bufferValEl = document.getElementById('player-buffer');
-                    if (bufferValEl) {
-                        bufferValEl.textContent = '1.2 MB / 4s (Paused)';
+                    if (bufferValEl) bufferValEl.textContent = 'Пауза';
+                } else {
+                    if (!audioEl.src || audioEl.src === window.location.href) {
+                        loadTrack(currentSound, true);
+                        return;
                     }
-                    lastProgressTime = null;
+                    audioEl.play().then(() => {
+                        isPlaying = true;
+                        setPlayIcon(true);
+                        if (vizFrameId) cancelAnimationFrame(vizFrameId);
+                        animateVisualizer();
+                    }).catch(() => showAudioMissingBanner(audioEl.src));
                 }
             };
         }
 
+        // ─── Nature sound buttons ─────────────────────────────────────────────
         natureBtns.forEach(btn => {
             btn.onclick = () => {
                 natureBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
                 const sound = btn.getAttribute('data-sound');
-                if (playerCard) {
-                    playerCard.classList.remove('theme-forest', 'theme-rain', 'theme-waves');
-                    playerCard.classList.add(`theme-${sound}`);
-                }
-                
-                if (sound === 'forest') {
-                    if (trackTitle) trackTitle.textContent = 'Звуки леса и ручья';
-                    if (trackSubtitle) trackSubtitle.textContent = 'Терапевтическая сессия медитации • 96kHz Lossless';
-                    activeThemeColor = 'rgba(255, 107, 0, 0.3)';
-                    activeThemeWaveColor = '#FF6B00';
-                } else if (sound === 'rain') {
-                    if (trackTitle) trackTitle.textContent = 'Осенний дождь (Almaty Ambient)';
-                    if (trackSubtitle) trackSubtitle.textContent = 'Нейро-атмосфера дождя • 96kHz FLAC';
-                    activeThemeColor = 'rgba(255, 107, 0, 0.3)';
-                    activeThemeWaveColor = '#FF6B00';
-                } else if (sound === 'waves') {
-                    if (trackTitle) trackTitle.textContent = 'Тихий океан (Alpha-Relax Session)';
-                    if (trackSubtitle) trackSubtitle.textContent = 'Гипнотическая сессия прибоя • 96kHz Lossless';
-                    activeThemeColor = 'rgba(255, 107, 0, 0.3)';
-                    activeThemeWaveColor = '#FF6B00';
-                }
+                loadTrack(sound, true);
             };
         });
 
-        const timelineSlider = document.getElementById('player-timeline-slider');
+        // ─── Timeline seek ────────────────────────────────────────────────────
         if (timelineSlider) {
             timelineSlider.onclick = (e) => {
-                const rect = timelineSlider.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const percent = Math.max(0, Math.min(1, clickX / rect.width));
-                elapsedTimeSec = percent * playbackDurationSec;
-                
-                const fillEl = document.getElementById('player-timeline-fill');
-                const currentEl = document.getElementById('player-time-current');
-                if (fillEl) fillEl.style.width = (percent * 100) + '%';
-                if (currentEl) {
-                    const minutes = Math.floor(elapsedTimeSec / 60);
-                    const seconds = Math.floor(elapsedTimeSec % 60);
-                    currentEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                const rect    = timelineSlider.getBoundingClientRect();
+                const percent = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                const dur     = audioEl.duration;
+                if (dur && isFinite(dur)) {
+                    audioEl.currentTime = percent * dur;
                 }
             };
         }
+
+        // ─── Load default track (but don't autoplay until user clicks) ───────
+        loadTrack('forest', false);
+        setPlayIcon(false);
+
 
         const chatPsyArea = document.getElementById('chat-psy-area');
         const moodChips = document.querySelectorAll('.btn-mood-chip');
@@ -1913,6 +2040,12 @@
         if (vizFrameId) cancelAnimationFrame(vizFrameId);
         if (flowFrameId) cancelAnimationFrame(flowFrameId);
         if (packFrameId) cancelAnimationFrame(packFrameId);
+        if (audioEl) {
+            audioEl.pause();
+            audioEl.src = '';
+            audioEl = null;
+        }
+        isPlaying = false;
         resetAllAccordions();
     }
 

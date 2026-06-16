@@ -91,6 +91,70 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 3b. Mega-menu — with stable hover (fixed-position gap fix)
+    const megaBackdrop = document.getElementById('mega-menu-backdrop');
+    const dropdownWrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+    let megaCloseTimer = null;
+    let currentOpenWrapper = null;
+
+    function closeMegaMenus() {
+        clearTimeout(megaCloseTimer);
+        dropdownWrappers.forEach(w => w.classList.remove('is-open'));
+        if (megaBackdrop) megaBackdrop.classList.remove('visible');
+        currentOpenWrapper = null;
+        // Restore scroll
+        document.body.classList.remove('mega-menu-open');
+        if (window.lenisInstance) window.lenisInstance.start();
+    }
+
+    function openMegaMenuOn(wrapper) {
+        // Close any other open menu
+        dropdownWrappers.forEach(w => { if (w !== wrapper) w.classList.remove('is-open'); });
+        wrapper.classList.add('is-open');
+        if (megaBackdrop) megaBackdrop.classList.add('visible');
+        currentOpenWrapper = wrapper;
+        // Lock scroll
+        document.body.classList.add('mega-menu-open');
+        if (window.lenisInstance) window.lenisInstance.stop();
+    }
+
+    function scheduleClose() {
+        megaCloseTimer = setTimeout(closeMegaMenus, 150);
+    }
+
+    function cancelClose() {
+        clearTimeout(megaCloseTimer);
+    }
+
+    dropdownWrappers.forEach(wrapper => {
+        wrapper.addEventListener('mouseenter', () => {
+            cancelClose();
+            if (wrapper.querySelector('.mega-menu')) {
+                openMegaMenuOn(wrapper);
+            }
+        });
+        wrapper.addEventListener('mouseleave', () => {
+            scheduleClose();
+        });
+    });
+
+    // Hovering over the mega-menu panel itself cancels the close timer
+    document.querySelectorAll('.mega-menu').forEach(panel => {
+        panel.addEventListener('mouseenter', cancelClose);
+        panel.addEventListener('mouseleave', scheduleClose);
+    });
+
+    // Click backdrop → close immediately
+    if (megaBackdrop) {
+        megaBackdrop.addEventListener('click', closeMegaMenus);
+        megaBackdrop.addEventListener('mouseenter', scheduleClose);
+    }
+
+    // Clicking any mega-menu link closes the menu immediately
+    document.querySelectorAll('.mega-link, .mega-featured-link').forEach(link => {
+        link.addEventListener('click', closeMegaMenus);
+    });
+
     // 4. Hash Router Logic
     const routes = {
         '#/': 'home',
@@ -126,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isNavigating = true;
 
         closeMobileMenu();
+        closeMegaMenus();
 
         // Perform GSAP Transition Curtain Sweep
         const tl = gsap.timeline({
@@ -252,6 +317,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.scrollTo(0, 0);
             }
 
+            // -------------------------------------------------------------
+            // PRE-HIDE ELEMENTS BEFORE CURTAIN RETRACTS TO PREVENT FLASHING
+            // -------------------------------------------------------------
+            // Kill old triggers first
+            ScrollTrigger.getAll().forEach(t => t.kill());
+            
+            // Select Hero elements
+            const heroElements = targetSection.querySelectorAll('.hero-content h1, .hero-content p, .hero-content .btn-cta-orange, .hero-content .suptitle, .case-header h1, .case-header p, .case-header .suptitle, .product-hero-title, .product-hero-desc, .product-hero .suptitle, .interactive-marker');
+            gsap.set(heroElements, { opacity: 0, y: 30 });
+
+            // Select scroll elements (grid containers)
+            const scrollContainers = targetSection.querySelectorAll(
+                '.columns-grid-3, .teaser-grid, .matrix-grid-2x2, .exploded-text-steps, .software-grid, .rollout-steps, .pricing-grid, .qadr-comparison-grid, .contacts-grid, .funnel-steps-bar, .about-grid'
+            );
+            scrollContainers.forEach(container => {
+                // Pre-hide their child items
+                const items = container.querySelectorAll(
+                    '.competency-column, .teaser-card, .matrix-card, .step-card, .software-card, .rollout-step, .pricing-card, .comparison-card-row, .contact-card, .funnel-step-btn, .about-title-side, .about-text-side'
+                );
+                if (items.length > 0) {
+                    gsap.set(items, { opacity: 0, y: 40 });
+                }
+            });
+
+            // Select solo elements
+            const soloElements = targetSection.querySelectorAll(
+                '.demonstration-banner, .concept-difference, .audio-player-simulator, .ai-psychologist-chat, .fridge-graphic-box, .fridge-checkout-box, .funnel-ui-view, .erp-visualizer-container, .spec-table, .section-header'
+            );
+            gsap.set(soloElements, { opacity: 0, y: 40 });
+
             // Dispatch global hooks for webgl/interactives to re-initialize or resize
             window.dispatchEvent(new CustomEvent('page-swapped', { detail: { page: pageKey } }));
 
@@ -269,11 +364,74 @@ document.addEventListener('DOMContentLoaded', () => {
                 gsap.set(transitionCurtain, { left: '-100%' });
                 transitionCurtain.classList.remove('animating');
                 
-                // Fade in-up animation for text blocks in the new active page
-                gsap.fromTo(targetSection.querySelectorAll('h1, h2, .suptitle, p, .btn-cta-orange, .competency-column'), 
-                    { opacity: 0, y: 30 },
-                    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08 }
+                // -------------------------------------------------------------
+                // ANIMATE HERO ELEMENTS IMMEDIATELY ON PAGE LOAD
+                // -------------------------------------------------------------
+                const heroElements = targetSection.querySelectorAll('.hero-content h1, .hero-content p, .hero-content .btn-cta-orange, .hero-content .suptitle, .case-header h1, .case-header p, .case-header .suptitle, .product-hero-title, .product-hero-desc, .product-hero .suptitle, .interactive-marker');
+                if (heroElements.length > 0) {
+                    gsap.to(heroElements, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        stagger: 0.08
+                    });
+                }
+                
+                // -------------------------------------------------------------
+                // INITIALIZE SCROLLTRIGGER ANIMATIONS FOR BELOW THE FOLD CONTENT
+                // -------------------------------------------------------------
+                // 1. Grid/Container Animations (Staggered items)
+                const scrollContainers = targetSection.querySelectorAll(
+                    '.columns-grid-3, .teaser-grid, .matrix-grid-2x2, .exploded-text-steps, .software-grid, .rollout-steps, .pricing-grid, .qadr-comparison-grid, .contacts-grid, .funnel-steps-bar, .about-grid'
                 );
+                
+                scrollContainers.forEach(container => {
+                    const items = container.querySelectorAll(
+                        '.competency-column, .teaser-card, .matrix-card, .step-card, .software-card, .rollout-step, .pricing-card, .comparison-card-row, .contact-card, .funnel-step-btn, .about-title-side, .about-text-side'
+                    );
+                    
+                    if (items.length > 0) {
+                        gsap.to(items, {
+                            scrollTrigger: {
+                                trigger: container,
+                                start: 'top 85%', // start when top of grid is 85% down from top of viewport
+                                toggleActions: 'play none none none',
+                            },
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: 'power3.out',
+                            stagger: 0.1,
+                            clearProps: 'opacity,transform'
+                        });
+                    }
+                });
+
+                // 2. Solo elements
+                const soloElements = targetSection.querySelectorAll(
+                    '.demonstration-banner, .concept-difference, .audio-player-simulator, .ai-psychologist-chat, .fridge-graphic-box, .fridge-checkout-box, .funnel-ui-view, .erp-visualizer-container, .spec-table, .section-header'
+                );
+                
+                soloElements.forEach(el => {
+                    gsap.to(el, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                        },
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: 'power3.out',
+                        clearProps: 'opacity,transform'
+                    });
+                });
+
+                // Refresh triggers to ensure correct layout coordinate offsets
+                setTimeout(() => {
+                    ScrollTrigger.refresh();
+                }, 100);
             }
         });
     }
@@ -291,6 +449,15 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavItems.forEach(item => item.addEventListener('click', handleNavItemClick));
     const logoLink = document.getElementById('logo-link');
     if (logoLink) logoLink.addEventListener('click', handleNavItemClick);
+
+    // Also attach router to mega-menu links
+    document.querySelectorAll('.mega-link, .mega-featured-link').forEach(link => {
+        link.addEventListener('click', handleNavItemClick);
+    });
+    // Also attach router to the "О компании" outline button
+    const aboutBtn = document.querySelector('.btn-header-outline[data-page]');
+    if (aboutBtn) aboutBtn.addEventListener('click', handleNavItemClick);
+
 
     // 5. Scroll Handler for Header styling transitions
     const handleScroll = (y) => {

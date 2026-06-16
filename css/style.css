@@ -339,11 +339,10 @@ a {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Mobile Nav Drawer */
 .mobile-nav-drawer {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 80%;
     max-width: 400px;
     height: 100vh;
@@ -354,11 +353,13 @@ a {
     padding: 120px 40px 40px 40px;
     display: flex;
     flex-direction: column;
-    transition: var(--transition-smooth);
+    transform: translateX(100%);
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-drawer.active {
-    right: 0;
+    transform: translateX(0);
 }
 
 .mobile-nav-list {
@@ -405,7 +406,26 @@ a {
     box-shadow: 0 6px 20px rgba(255, 94, 0, 0.35);
 }
 
-/* Navigation Dropdown styling */
+/* Outline header action button — "О компании" */
+.btn-header-outline {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 8px 18px;
+    border: 1.5px solid rgba(10,17,40,0.18);
+    border-radius: 8px;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.btn-header-outline:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+}
+
+/* Base dropdown wrapper */
 .nav-dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -418,77 +438,154 @@ a {
     cursor: pointer;
 }
 
+/* ==========================================================================
+   MEGA-MENU (OpenAI-style)
+   ========================================================================== */
+
+/* Chevron arrow on toggle */
 .dropdown-toggle::after {
     content: '';
     display: inline-block;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-right: 1.5px solid currentColor;
     border-bottom: 1.5px solid currentColor;
     transform: translateY(-1px) rotate(45deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
+    margin-left: 4px;
 }
 
-.nav-dropdown-wrapper:hover .dropdown-toggle::after {
+.nav-dropdown-wrapper:hover .dropdown-toggle::after,
+.nav-dropdown-wrapper.is-open .dropdown-toggle::after {
     transform: translateY(2px) rotate(-135deg);
 }
 
-.nav-dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(15px);
-    background: rgba(255, 255, 255, 0.96) !important;
+/* Mega-menu panel: sits below header, full-width — white site palette */
+.mega-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(10, 17, 40, 0.08) !important;
-    border-radius: 12px;
-    padding: 10px 0;
-    min-width: 250px;
-    box-shadow: 0 10px 30px rgba(10, 17, 40, 0.08) !important;
+    border-top: 1px solid rgba(10, 17, 40, 0.06);
+    border-bottom: 1px solid rgba(10, 17, 40, 0.06);
+    box-shadow: 0 12px 40px rgba(10, 17, 40, 0.08);
+    z-index: 999;
+    pointer-events: none;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
+    transform: translateY(-6px);
+    transition: opacity 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* Invisible bridge above panel — fills any gap between header and panel */
+.mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: transparent;
+}
+
+.nav-dropdown-wrapper:hover .mega-menu,
+.nav-dropdown-wrapper.is-open .mega-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Inner layout: constrained width, two columns */
+.mega-menu-inner {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 24px 44px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 64px;
+    align-items: start;
+}
+
+/* Column styles */
+.mega-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mega-col-label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-orange);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(10, 17, 40, 0.08);
+    display: block;
+}
+
+.mega-col ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.nav-dropdown-wrapper:hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(8px);
-}
-
-.nav-dropdown-menu li {
-    width: 100%;
-    list-style: none;
-}
-
-.nav-dropdown-menu .dropdown-item {
+/* Left column: large navigation links */
+.mega-col-links .mega-link {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
     display: block;
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 0.88rem;
-    color: var(--text-primary) !important;
-    border-radius: 0;
-    border: none;
-    background: transparent;
-    text-align: left;
-    transition: var(--transition-fast);
+    padding: 8px 0;
+    letter-spacing: -0.02em;
+    transition: color 0.18s ease;
+    line-height: 1.2;
 }
 
-.nav-dropdown-menu .dropdown-item:hover {
-    background: rgba(255, 94, 0, 0.06) !important;
-    color: var(--accent-orange) !important;
-    padding-left: 24px;
+.mega-col-links .mega-link:hover {
+    color: var(--accent-orange);
 }
 
-.nav-dropdown-menu .dropdown-item.active {
-    background: rgba(255, 94, 0, 0.08) !important;
-    color: var(--accent-orange) !important;
-    font-weight: 600;
+/* Right column: smaller featured links */
+.mega-col-featured .mega-featured-link {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: block;
+    padding: 6px 0;
+    transition: color 0.18s ease;
+}
+
+.mega-col-featured .mega-featured-link:hover {
+    color: var(--accent-orange);
+}
+
+/* Full-page backdrop: blurs + dims the ENTIRE page when mega-menu is open */
+.mega-menu-backdrop {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    z-index: 998;
+    pointer-events: none;
+    transition: background 0.35s ease, backdrop-filter 0.35s ease;
+}
+
+.mega-menu-backdrop.visible {
+    background: rgba(10, 17, 40, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    pointer-events: all;
 }
 
 
@@ -710,6 +807,13 @@ a {
     .burger-btn {
         display: flex;
     }
+    .mega-menu,
+    .mega-menu-backdrop {
+        display: none !important;
+    }
+    .btn-header-outline {
+        display: none;
+    }
     .footer-container {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -870,9 +974,6 @@ a {
 /* Turn tag/badge plaques into pure typographic orange labels (no brackets/slashes) */
 .pulsing-badge,
 .comp-tag,
-.teaser-suptitle,
-.prod-tag-orange,
-.case-category,
 .large-orange-badge,
 .step-badge,
 .crm-timeline-tag,
@@ -1041,5 +1142,10 @@ a {
 }
 
 body.modal-open {
+    overflow: hidden !important;
+}
+
+/* Scroll lock when mega-menu is open */
+body.mega-menu-open {
     overflow: hidden !important;
 }
